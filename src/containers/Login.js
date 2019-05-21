@@ -17,13 +17,21 @@ export default class Login extends Component {
     });
   }
 
+  // handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   if (this.validateForm()) {
+  //     // this.props.shop.user.logIn(this.state);
+  //     // this.props.history.goBack();
+  //     console.log("Login handleSubmit firing")
+  //   }
+  // }
+
   handleSubmit = (event) => {
     event.preventDefault();
-    this.formErrors();
     if (this.validateForm()) {
       fetch('https://players-api.developer.alchemy.codes/api/login', {
         method: 'POST',
-        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        headers: {'Content-Type':'application/json'},
         body: JSON.stringify({
           "email": email.value,
           "password": password.value
