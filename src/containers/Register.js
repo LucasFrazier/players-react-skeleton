@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 export default class Register extends Component {
   constructor(props) {
@@ -9,8 +9,9 @@ export default class Register extends Component {
       firstName: '',
       lastName: '',
       email: '',
+      confirmEmail: '',
       password: '',
-      verifyPassword: '',
+      confirmPassword: '',
       ErrorFirstName: false,
       ErrorLastName: false,
       ErrorEmail: false,
@@ -33,7 +34,10 @@ export default class Register extends Component {
       // this.props.shop.user.register(this.state);
       // this.props.history.push('/account');
       // this.props.history.push('/login');
-      console.log("Register handleSubmit is firing")
+      console.log("handleSubmit firing");
+    }
+    else {
+      console.log("julst ekse");
     }
   }
 
@@ -47,6 +51,7 @@ export default class Register extends Component {
         ErrorFirstName: false,
       });
     }
+    // console.log(this.state.firstName.length !== 0)
     return this.state.firstName.length !== 0;
   }
 
@@ -60,6 +65,7 @@ export default class Register extends Component {
         ErrorLastName: false,
       });
     }
+    // console.log(this.state.lastName.length !== 0)
     return this.state.lastName.length !== 0;
   }
 
@@ -73,20 +79,23 @@ export default class Register extends Component {
         ErrorEmail: false,
       });
     }
+    // console.log(this.state.email.length !== 0)
     return this.state.email.length !== 0;
   }
 
   verifyEmail() {
-    if (this.state.verifyEmail.length === 0 || this.state.email !== this.state.verifyEmail) {
+    if (this.state.confirmEmail && this.state.email) {if (this.state.confirmEmail.length === 0 || this.state.email !== this.state.confirmEmail) {
       this.setState({
         ErrorVerifyEmail: true,
       });
-    } else {
+    }}
+     else {
       this.setState({
         ErrorVerifyEmail: false,
       });
     }
-    return this.state.email === this.state.verifyEmail;
+    // console.log(this.state.email === this.state.confirmEmail)
+    return this.state.email === this.state.confirmEmail;
   }
 
   confirmPassword() {
@@ -99,21 +108,24 @@ export default class Register extends Component {
         ErrorPassword: false,
       });
     }
+    // console.log(this.state.password.length !== 0)
     return this.state.password.length !== 0;
   }
 
   verifyPassword() {
-    if (this.state.verifyPassword.length === 0
-      || this.state.password !== this.state.verifyPassword) {
+    if (this.state.password && this.state.confirmPassword) {if (this.state.confirmPassword.length === 0
+      || this.state.password !== this.state.confirmPassword) {
       this.setState({
         ErrorVerifyPassword: true,
       });
-    } else {
+    }}
+     else {
       this.setState({
         ErrorVerifyPassword: false,
       });
     }
-    return this.state.password === this.state.verifyPassword;
+    // console.log(this.state.password === this.state.confirmPassword)
+    return this.state.password === this.state.confirmPassword;
   }
 
   formErrors() {
@@ -265,7 +277,7 @@ export default class Register extends Component {
                 className={this.state.ErrorVerifyPassword ? 'input is-danger' : 'input'}
                 type="password"
                 placeholder="Confirm Password"
-                value={this.state.verifyPassword}
+                value={this.state.confirmPassword}
                 onChange={this.handleChange}
               />
               <span className="icon is-small is-left">
