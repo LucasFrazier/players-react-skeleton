@@ -31,13 +31,23 @@ export default class Register extends Component {
     event.preventDefault();
     this.formErrors();
     if (this.validateForm()) {
-      // this.props.shop.user.register(this.state);
-      // this.props.history.push('/account');
-      // this.props.history.push('/login');
-      console.log("handleSubmit firing");
+      fetch('https://players-api.developer.alchemy.codes/api/user', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+          "first_name": firstName.value,
+          "last_name": lastName.value,
+          "email": email.value,
+          "password": password.value,
+          "confirm_password": confirmPassword.value
+        })
+      })
+      .then(response => response.json())
+      .catch(error => console.error('Error:', error))
+      .then(response => console.log('Success:', JSON.stringify(response)));
     }
     else {
-      console.log("julst ekse");
+      console.log("The form is invalid!");
     }
   }
 

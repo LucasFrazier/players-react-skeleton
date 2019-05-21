@@ -19,10 +19,22 @@ export default class Login extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    this.formErrors();
     if (this.validateForm()) {
-      // this.props.shop.user.logIn(this.state);
-      // this.props.history.goBack();
-      console.log("Login handleSubmit firing")
+      fetch('https://players-api.developer.alchemy.codes/api/login', {
+        method: 'POST',
+        headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        body: JSON.stringify({
+          "email": email.value,
+          "password": password.value
+        })
+      })
+      .then(response => response.json())
+      .catch(error => console.error('Error:', error))
+      .then(response => console.log('Success:', JSON.stringify(response)));
+    }
+    else {
+      console.log("The form is invalid!");
     }
   }
 
