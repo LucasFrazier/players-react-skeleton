@@ -1,152 +1,294 @@
-// import React, { Component } from 'react'
-// import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-// export default class Register extends Component {
-//   render() {
-//     return (
-//       <div>
-//         Here is the Register Page.
-//         <Link to='/'>Back to Landing Page</Link>
+export default class Register extends Component {
+  constructor(props) {
+    super(props);
 
-//       </div>
-//     )
-//   }
-// }
-
-import React from 'react';
-// import './style.css';
-
-
-class RegisterForm extends React.Component {
-    constructor() {
-      super();
-      this.state = {
-        fields: {},
-        errors: {}
-      }
-
-      this.handleChange = this.handleChange.bind(this);
-      this.submituserRegistrationForm = this.submituserRegistrationForm.bind(this);
-
+    this.state = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      verifyPassword: '',
+      ErrorFirstName: false,
+      ErrorLastName: false,
+      ErrorEmail: false,
+      ErrorVerifyEmail: false,
+      ErrorPassword: false,
+      ErrorVerifyPassword: false,
     };
+  }
 
-    handleChange(e) {
-      let fields = this.state.fields;
-      fields[e.target.name] = e.target.value;
+  handleChange = (event) => {
+    this.setState({
+      [event.target.id]: event.target.value,
+    });
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.formErrors();
+    if (this.validateForm()) {
+      // this.props.shop.user.register(this.state);
+      // this.props.history.push('/account');
+      // this.props.history.push('/login');
+      console.log("Register handleSubmit is firing")
+    }
+  }
+
+  confirmFirstName() {
+    if (this.state.firstName.length === 0) {
       this.setState({
-        fields
+        ErrorFirstName: true,
       });
-
-    }
-
-    submituserRegistrationForm(e) {
-      e.preventDefault();
-      if (this.validateForm()) {
-          let fields = {};
-          fields["username"] = "";
-          fields["emailid"] = "";
-          fields["mobileno"] = "";
-          fields["password"] = "";
-          this.setState({fields:fields});
-          alert("Form submitted");
-      }
-
-    }
-
-    validateForm() {
-
-      let fields = this.state.fields;
-      let errors = {};
-      let formIsValid = true;
-
-      if (!fields["username"]) {
-        formIsValid = false;
-        errors["username"] = "*Please enter your username.";
-      }
-
-      if (typeof fields["username"] !== "undefined") {
-        if (!fields["username"].match(/^[a-zA-Z ]*$/)) {
-          formIsValid = false;
-          errors["username"] = "*Please enter alphabet characters only.";
-        }
-      }
-
-      if (!fields["emailid"]) {
-        formIsValid = false;
-        errors["emailid"] = "*Please enter your email-ID.";
-      }
-
-      if (typeof fields["emailid"] !== "undefined") {
-        //regular expression for email validation
-        var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
-        if (!pattern.test(fields["emailid"])) {
-          formIsValid = false;
-          errors["emailid"] = "*Please enter valid email-ID.";
-        }
-      }
-
-      if (!fields["mobileno"]) {
-        formIsValid = false;
-        errors["mobileno"] = "*Please enter your mobile no.";
-      }
-
-      if (typeof fields["mobileno"] !== "undefined") {
-        if (!fields["mobileno"].match(/^[0-9]{10}$/)) {
-          formIsValid = false;
-          errors["mobileno"] = "*Please enter valid mobile no.";
-        }
-      }
-
-      if (!fields["password"]) {
-        formIsValid = false;
-        errors["password"] = "*Please enter your password.";
-      }
-
-      if (typeof fields["password"] !== "undefined") {
-        if (!fields["password"].match(/^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/)) {
-          formIsValid = false;
-          errors["password"] = "*Please enter secure and strong password.";
-        }
-      }
-
+    } else {
       this.setState({
-        errors: errors
+        ErrorFirstName: false,
       });
-      return formIsValid;
-
-
     }
+    return this.state.firstName.length !== 0;
+  }
 
+  confirmLastName() {
+    if (this.state.lastName.length === 0) {
+      this.setState({
+        ErrorLastName: true,
+      });
+    } else {
+      this.setState({
+        ErrorLastName: false,
+      });
+    }
+    return this.state.lastName.length !== 0;
+  }
 
+  confirmEmail() {
+    if (this.state.email.length === 0) {
+      this.setState({
+        ErrorEmail: true,
+      });
+    } else {
+      this.setState({
+        ErrorEmail: false,
+      });
+    }
+    return this.state.email.length !== 0;
+  }
+
+  verifyEmail() {
+    if (this.state.verifyEmail.length === 0 || this.state.email !== this.state.verifyEmail) {
+      this.setState({
+        ErrorVerifyEmail: true,
+      });
+    } else {
+      this.setState({
+        ErrorVerifyEmail: false,
+      });
+    }
+    return this.state.email === this.state.verifyEmail;
+  }
+
+  confirmPassword() {
+    if (this.state.password.length === 0) {
+      this.setState({
+        ErrorPassword: true,
+      });
+    } else {
+      this.setState({
+        ErrorPassword: false,
+      });
+    }
+    return this.state.password.length !== 0;
+  }
+
+  verifyPassword() {
+    if (this.state.verifyPassword.length === 0
+      || this.state.password !== this.state.verifyPassword) {
+      this.setState({
+        ErrorVerifyPassword: true,
+      });
+    } else {
+      this.setState({
+        ErrorVerifyPassword: false,
+      });
+    }
+    return this.state.password === this.state.verifyPassword;
+  }
+
+  formErrors() {
+    this.confirmFirstName();
+    this.confirmLastName();
+    this.confirmEmail();
+    this.confirmPassword();
+    this.verifyEmail();
+    this.verifyPassword();
+  }
+
+  validateForm() {
+    return (
+      this.confirmFirstName()
+      && this.confirmLastName()
+      && this.confirmEmail()
+      && this.confirmPassword()
+      && this.verifyEmail()
+      && this.verifyPassword()
+    );
+  }
 
   render() {
     return (
-    <div id="main-registration-container">
-     <div id="register">
-        <h3>Registration page</h3>
-        <form method="post"  name="userRegistrationForm"  onSubmit= {this.submituserRegistrationForm} >
-        <label>Name</label>
-        <input type="text" name="username" value={this.state.fields.username} onChange={this.handleChange} />
-        <div className="errorMsg">{this.state.errors.username}</div>
-        <label>Email ID:</label>
-        <input type="text" name="emailid" value={this.state.fields.emailid} onChange={this.handleChange}  />
-        <div className="errorMsg">{this.state.errors.emailid}</div>
-        <label>Mobile No:</label>
-        <input type="text" name="mobileno" value={this.state.fields.mobileno} onChange={this.handleChange}   />
-        <div className="errorMsg">{this.state.errors.mobileno}</div>
-        <label>Password</label>
-        <input type="password" name="password" value={this.state.fields.password} onChange={this.handleChange} />
-        <div className="errorMsg">{this.state.errors.password}</div>
-        <input type="submit" className="button"  value="Register"/>
+      <div className="container">
+        <form onSubmit={this.handleSubmit}>
+          
+          <div className="field">
+            <label className="label is-marginless">First Name</label>
+            {this.state.ErrorFirstName && <p className="help is-danger is-marginless">Please Enter First Name!</p>}
+            <p className="control has-icons-left has-icons-right">
+              <input 
+                id="firstName" 
+                className={this.state.ErrorFirstName ? 'input is-danger is-marginless' : 'input'} 
+                type="text" 
+                placeholder="First Name"
+                value={this.state.firstName}
+                onChange={this.handleChange}
+              />
+              <span className="icon is-small is-left">
+                <i className="fas fa-user"></i>
+              </span>
+              {this.state.ErrorFirstName && (
+              <span className="icon is-small is-right">
+                <i className="fas fa-exclamation-triangle" />
+              </span>
+              )}
+            </p>
+          </div>
+          
+          <div className="field">
+          <label className="label is-marginless">Last Name</label>
+          {this.state.ErrorLastName && <p className="help is-danger is-marginless">Please Enter Last Name!</p>}
+            <p className="control has-icons-left has-icons-right">
+              <input
+                id="lastName"
+                className={this.state.ErrorLastName ? 'input is-danger' : 'input'}
+                type="text"
+                placeholder="Last Name"
+                value={this.state.lastName}
+                onChange={this.handleChange}
+              />
+              <span className="icon is-small is-left">
+                <i className="fas fa-user"></i>
+              </span>
+              {this.state.ErrorLastName && (
+              <span className="icon is-small is-right">
+                <i className="fas fa-exclamation-triangle" />
+              </span>
+              )}
+            </p>
+          </div>
+          
+          <div className="field">
+            <label className="label is-marginless">Email</label>
+            <p className="control has-icons-left has-icons-right">
+              <input
+                id="email"
+                className={this.state.ErrorEmail ? 'input is-danger' : 'input'}
+                type="email"
+                placeholder="Email"
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
+              <span className="icon is-small is-left">
+                <i className="fas fa-envelope" />
+              </span>
+              {this.state.ErrorEmail && (
+                <span className="icon is-small is-right">
+                  <i className="fas fa-exclamation-triangle" />
+                </span>
+              )}
+            </p>
+          </div>
+          
+          <div className="field">
+            <label className="label is-marginless">Confirm Email</label>
+            {this.state.ErrorVerifyEmail && <p className="help is-danger is-marginless">Email and Confirmation Email Do Not Match!</p>}
+            <p className="control has-icons-left has-icons-right">
+              <input
+                id="confirmEmail"
+                className={this.state.ErrorVerifyEmail ? 'input is-danger' : 'input'}
+                type="email"
+                placeholder="Confirm Email"
+                value={this.state.verifyEmail}
+                onChange={this.handleChange}
+              />
+              <span className="icon is-small is-left">
+                <i className="fas fa-envelope" />
+              </span>
+
+              {this.state.ErrorVerifyEmail && (
+                <span className="icon is-small is-right">
+                  <i className="fas fa-exclamation-triangle" />
+                </span>
+              )}
+            </p>
+          </div>
+          
+          <div className="field">
+            <label className="label is-marginless">Password</label>
+            {this.state.ErrorPassword && <p className="help is-danger is-marginless">Please Enter Password!</p>}
+            <p className="control has-icons-left">
+              <input
+                id="password"
+                className={this.state.ErrorPassword ? 'input is-danger' : 'input'}
+                type="password"
+                placeholder="Password"
+                value={this.state.password}
+                onChange={this.handleChange}
+              />
+              <span className="icon is-small is-left">
+                <i className="fas fa-lock" />
+              </span>
+              {this.state.ErrorPassword && (
+                <span className="icon is-small is-right">
+                  <i className="fas fa-exclamation-triangle" />
+                </span>
+              )}
+            </p>
+          </div>
+          
+          <div className="field">
+            <label className="label is-marginless">Confirm Password</label>
+            {this.state.ErrorVerifyPassword && <p className="help is-danger is-marginless">Password and Confirmation Password Do Not Match!</p>}
+            <p className="control has-icons-left">
+              <input
+                id="confirmPassword"
+                className={this.state.ErrorVerifyPassword ? 'input is-danger' : 'input'}
+                type="password"
+                placeholder="Confirm Password"
+                value={this.state.verifyPassword}
+                onChange={this.handleChange}
+              />
+              <span className="icon is-small is-left">
+                <i className="fas fa-lock" />
+              </span>
+              {this.state.ErrorVerifyPassword && (
+                <span className="icon is-small is-right">
+                  <i className="fas fa-exclamation-triangle" />
+                </span>
+              )}
+            </p>
+          </div>
+          
+          <div className="field">
+            <p className="control">
+              <button id="register" className="button is-primary" type="submit">
+                  Register
+              </button>
+            </p>
+          </div>
+
         </form>
-    </div>
-</div>
-
-      );
+      </div>
+    )
   }
-
-
 }
-
-
-export default RegisterForm;
