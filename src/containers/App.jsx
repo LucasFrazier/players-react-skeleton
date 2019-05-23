@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 // import { observer, inject } from 'mobx-react';
 // import { CloudinaryContext } from 'cloudinary-react';
 import Routes from './Routes';
-// import NavBar from '../components/NavBar';
+import NavBar from './NavBar';
 // import Footer from '../components/Footer';
 
 // @inject('shop')
@@ -23,7 +23,7 @@ class App extends Component {
       <Router>
         <div>
           {/* <CloudinaryContext cloudName={cloudinaryId}> */}
-            {/* <NavBar /> */}
+            <NavBar />
             <Routes />
             {/* <Footer /> */}
           {/* </CloudinaryContext> */}
