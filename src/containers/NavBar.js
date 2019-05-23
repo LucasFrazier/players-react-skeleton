@@ -23,8 +23,8 @@ export default class NavBar extends Component {
         Home
       </a>
 
-      <a href="/roster" className="navbar-item">
-        /roster
+      <a href="/player/new" className="navbar-item">
+        /player/new
       </a>
 
       <div className="navbar-item has-dropdown is-hoverable">
