@@ -1,11 +1,3 @@
-// import React from 'react';
-
-// const App = () => <div>Replace me with something you can be proud of.</div>;
-
-// export default App;
-
-
-
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 // import DevTools from 'mobx-react-devtools';

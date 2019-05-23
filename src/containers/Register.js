@@ -44,7 +44,13 @@ export default class Register extends Component {
       })
       .then(response => response.json())
       .catch(error => console.error('Error:', error))
-      .then(response => console.log('Success:', JSON.stringify(response)));
+      // .then(response => console.log('Success:', JSON.stringify(response)));
+      .then(response => {
+        response.success === true && 
+        window.localStorage.setItem("user", JSON.stringify(response.user));
+        window.localStorage.setItem("jwt", response.token);
+        this.props.history.push("/roster");
+      });
     }
     else {
       console.log("The form is invalid!");
