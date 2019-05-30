@@ -1,35 +1,70 @@
-import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
-// import DevTools from 'mobx-react-devtools';
-import { BrowserRouter as Router } from 'react-router-dom';
-// import { observer, inject } from 'mobx-react';
-// import { CloudinaryContext } from 'cloudinary-react';
-import Routes from './Routes';
-import NavBar from './NavBar';
-// import Footer from '../components/Footer';
+// import React, { Component } from 'react';
+// import { BrowserRouter as Router } from 'react-router-dom';
+// import Routes from './Routes';
+// import NavBar from './NavBar';
 
-// @inject('shop')
-// @observer
+// class App extends Component {
+
+//   render() {
+//     return (
+//       <Router>
+//         <div>
+//             <NavBar />
+//             <Routes />
+//             {/* <Footer /> */}
+//           {/* </CloudinaryContext> */}
+//         </div>
+//       </Router>
+//     );
+//   }
+// }
+// export default App;
+
+import React, { Component } from 'react';
+import Auth from '@aws-amplify/auth';
+import Analytics from '@aws-amplify/analytics';
+
+import awsconfig from '../aws-exports';
+
+// retrieve temporary AWS credentials and sign requests
+Auth.configure(awsconfig);
+// send analytics events to Amazon Pinpoint
+Analytics.configure(awsconfig);
+
 class App extends Component {
-//   static propTypes = {
-//     shop: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
-//   };
+  constructor(props) {
+    super(props);
+    this.handleAnalyticsClick = this.handleAnalyticsClick.bind(this);
+    this.state = {analyticsEventSent: false, resultHtml: "", eventsSent: 0};
+  }
+
+  handleAnalyticsClick() {
+      Analytics.record('AWS Amplify Tutorial Event')
+        .then( (evt) => {
+            const url = 'https://console.aws.amazon.com/pinpoint/home/?region=us-east-1#/apps/'+awsconfig.aws_mobile_analytics_app_id+'/analytics/events';
+            let result = (<div>
+              <p>Event Submitted.</p>
+              <p>Events sent: {++this.state.eventsSent}</p>
+              <a href={url} target="_blank">View Events on the Amazon Pinpoint Console</a>
+            </div>);
+            this.setState({
+                'analyticsEventSent': true,
+                'resultHtml': result
+            });
+        });
+  }
 
   render() {
-    // const {
-    //   shop: { cloudinaryId }
-    // } = this.props;
     return (
-      <Router>
-        <div>
-          {/* <CloudinaryContext cloudName={cloudinaryId}> */}
-            <NavBar />
-            <Routes />
-            {/* <Footer /> */}
-          {/* </CloudinaryContext> */}
+      <div className="App">
+        <div className="App-intro">
+          <button className="App-button" onClick={this.handleAnalyticsClick}>Analytics Event</button>
+          {this.state.analyticsEventSent}
+          <div>{this.state.resultHtml}</div>
         </div>
-      </Router>
+      </div>
     );
   }
 }
+
 export default App;

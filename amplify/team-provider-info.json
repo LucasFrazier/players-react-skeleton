@@ -1,0 +1,19 @@
+{
+    "master": {
+        "awscloudformation": {
+            "AuthRoleName": "playersreactskeleton-master-20190530145357-authRole",
+            "UnauthRoleArn": "arn:aws:iam::832426025868:role/playersreactskeleton-master-20190530145357-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::832426025868:role/playersreactskeleton-master-20190530145357-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "playersreactskeleton-master-20190530145357-deployment",
+            "UnauthRoleName": "playersreactskeleton-master-20190530145357-unauthRole",
+            "StackName": "playersreactskeleton-master-20190530145357",
+            "StackId": "arn:aws:cloudformation:us-east-1:832426025868:stack/playersreactskeleton-master-20190530145357/47f5fb60-830c-11e9-b459-0a9f1235b826"
+        },
+        "categories": {
+            "auth": {
+                "cognito33cc6c7b": {}
+            }
+        }
+    }
+}
