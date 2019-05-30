@@ -3,9 +3,8 @@
   "version": "2.0.0",
   "license": "MIT",
   "scripts": {
-    "tailwind:css":"tailwind build src/css/tailwind.src.css -c  tailwind.js -o src/css/tailwind.css",
-    "start": "npm run tailwind:css && parcel src/index.html -p 3000",
-    "build": "npm run tailwind:css && parcel build index.html --public-url",
+    "start": "parcel src/index.html -p 3000",
+    "build": "parcel build index.html --public-url",
     "e2e": "cypress open",
     "lint:js": "eslint src/**/**/*.js src/**/**/*.jsx tests/**/**/*.js",
     "lint:style": "stylelint src/**/**/*.css src/**/**/*.scss"
@@ -37,8 +36,7 @@
     "prettier": "^1.17.1",
     "prettierrc": "0.0.0",
     "stylelint": "10.0.1",
-    "stylelint-config-standard": "18.3.0",
-    "tailwindcss": "^1.0.2"
+    "stylelint-config-standard": "18.3.0"
   },
   "config": {
     "commitizen": {
