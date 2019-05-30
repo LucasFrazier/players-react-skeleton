@@ -6,6 +6,7 @@ import 'whatwg-fetch';
 // Change me if you prefer sass,scss, less. (Note you may need to update the build config)
 import './index.scss';
 import App from './containers/App';
+import './css/tailwind.css';
 
 ReactDOM.render(
 <BrowserRouter>
