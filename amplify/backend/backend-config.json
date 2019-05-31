@@ -1,6 +1,6 @@
 {
 	"auth": {
-		"cognito33cc6c7b": {
+		"playersreactskeletoned42c539": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation"
 		}

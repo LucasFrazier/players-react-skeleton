@@ -23,7 +23,7 @@
 import React, { Component } from 'react';
 import Auth from '@aws-amplify/auth';
 import Analytics from '@aws-amplify/analytics';
-
+import { withAuthenticator } from 'aws-amplify-react';
 import awsconfig from '../aws-exports';
 
 // retrieve temporary AWS credentials and sign requests
@@ -67,4 +67,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withAuthenticator(App);
