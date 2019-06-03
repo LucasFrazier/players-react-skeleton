@@ -17,15 +17,6 @@ export default class Login extends Component {
     });
   }
 
-  // handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   if (this.validateForm()) {
-  //     // this.props.shop.user.logIn(this.state);
-  //     // this.props.history.goBack();
-  //     console.log("Login handleSubmit firing")
-  //   }
-  // }
-
   handleSubmit = (event) => {
     event.preventDefault();
     if (this.validateForm()) {

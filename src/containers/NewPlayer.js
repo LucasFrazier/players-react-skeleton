@@ -104,7 +104,6 @@ export default class Register extends Component {
         ErrorHandedness: false,
       });
     }
-    console.log(this.state.handedness)
     return this.state.handedness.length !== 0;
   }
 
