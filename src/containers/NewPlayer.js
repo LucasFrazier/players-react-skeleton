@@ -9,7 +9,7 @@ export default class Register extends Component {
       firstName: '',
       lastName: '',
       rating: '',
-      handedness: '',
+      handedness: 'right',
       ErrorFirstName: false,
       ErrorLastName: false,
       ErrorRating: false,
@@ -82,7 +82,7 @@ export default class Register extends Component {
   }
 
   confirmRating() {
-    if (this.state.rating.length === 0) {
+    if (this.state.rating.length === 0 || this.state.rating > 10 || this.state.rating < 0)  {
       this.setState({
         ErrorRating: true,
       });
@@ -170,7 +170,7 @@ export default class Register extends Component {
         </div>
         <div className="field">
         <label className="label is-marginless">Rating</label>
-        {this.state.ErrorRating && <p className="help is-danger is-marginless">Please Enter Rating!</p>}
+        {this.state.ErrorRating && <p className="help is-danger is-marginless">Please Enter a Rating from 0 to 10!</p>}
           <p className="control has-icons-left has-icons-right">
             <input 
               id="rating"
@@ -188,10 +188,10 @@ export default class Register extends Component {
             </span>
           </p>
         </div>
-        <div class="field">
+        <div className="field">
         <label className="label is-marginless">Handedness</label>
-          <div class="control">
-            <div class="select is-primary">
+          <div className="control">
+            <div className="select is-primary">
               <select 
               id="handedness"
               className={this.state.handedness ? 'input is-danger' : 'input'}
