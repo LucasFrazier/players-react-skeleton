@@ -55,7 +55,7 @@ export default class Login extends Component {
   
   render() {
     return (
-      <div className="container">
+      <div className="container bg-yellow-500">
         <form onSubmit={this.handleSubmit}>
           <div className="field">
             <label className="label is-marginless">Email</label>
