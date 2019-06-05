@@ -4,19 +4,3 @@
 */
 
 @charset "utf-8";
-
-// Set custom colors
-$purple: #8A4D76;
-
-// Update Bulma's global variables
-$primary: $purple;
-
-@import 'node_modules/bulma/bulma.sass';
-
-.container {
-  padding: 25px;
-}
-
-.is-primary {
-  color: $purple;
-}
