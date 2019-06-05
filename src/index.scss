@@ -5,14 +5,18 @@
 
 @charset "utf-8";
 
-$primary-green: green;
+// Set custom colors
+$purple: #8A4D76;
+
+// Update Bulma's global variables
+$primary: $purple;
 
 @import 'node_modules/bulma/bulma.sass';
 
 .container {
-   padding: 25px;
+  padding: 25px;
 }
 
-// #root > div > div:nth-child(2) {
-//   color: $primary-green;
-// }
+.is-primary {
+  color: $purple;
+}

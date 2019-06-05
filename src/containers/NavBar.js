@@ -43,7 +43,7 @@ export default class NavBar extends Component {
                 Create New
               </a>
 
-              <div className="navbar-item has-dropdown is-hoverable">
+              {/* <div className="navbar-item has-dropdown is-hoverable">
                 <a className="navbar-link">
                   More
                 </a>
@@ -63,7 +63,7 @@ export default class NavBar extends Component {
                     Report an issue
                   </a>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div className="navbar-end">
