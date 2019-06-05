@@ -59,7 +59,7 @@ export default class Login extends Component {
         <form className="mb-0" onSubmit={this.handleSubmit}>
           <div className="">
             <label className="text-base font-bold block m-0 leading-normal">Email</label>
-            <div className="border-red-500">
+            <div className="">
               <input
                 id="email"
                 className="pr-8 pl-8 rounded shadow-inner w-full h-10 border border-gray-400"
