@@ -55,46 +55,46 @@ export default class Login extends Component {
   
   render() {
     return (
-      <div className="container bg-yellow-500">
-        <form onSubmit={this.handleSubmit}>
-          <div className="field">
-            <label className="label is-marginless">Email</label>
-            <div className="control has-icons-left has-icons-right">
+      <div className="p-6 border">
+        <form className="mb-0" onSubmit={this.handleSubmit}>
+          <div className="">
+            <label className="text-base font-bold block m-0 leading-normal">Email</label>
+            <div className="border-red-500">
               <input
                 id="email"
-                className="input"
+                className="pr-8 pl-8 rounded shadow-inner w-full h-10 border border-gray-400"
                 type="email"
                 placeholder="Email"
                 value={this.state.email}
                 onChange={this.handleChange}
               />
-              <span className="icon is-small is-left">
+              {/* <span className="">
                 <i className="fas fa-envelope" />
-              </span>
+              </span> */}
             </div>
           </div>
 
-          <div className="field">
-            <label className="label is-marginless">Password</label>
-            <div className="control has-icons-left has-icons-right">
+          <div className="mt-3">
+            <label className="text-base font-bold block m-0 leading-normal">Password</label>
+            <div className="">
               <input
                 id="password"
-                className="input"
+                className="pr-8 pl-8 rounded shadow-inner w-full h-10 border border-gray-400"
                 type="password"
                 placeholder="Password"
                 value={this.state.password}
                 onChange={this.handleChange}
               />
-              <span className="icon is-small is-left">
+              {/* <span className="">
                 <i className="fas fa-lock" />
-              </span>
+              </span> */}
             </div>
           </div>
 
           {this.state.loginError && <p className="help is-danger">Please Enter Username & Password</p>}
-          <div className="field">
-            <p className="control has-text-centered">
-              <button id="login" className="button is-primary " type="submit">
+          <div className="mt-3">
+            <p className="text-center">
+              <button id="login" className="bg-green-500 hover:bg-green-700 text-white py-2 px-3 rounded items-center" type="submit">
                 Login
               </button>
             </p>
@@ -102,7 +102,7 @@ export default class Login extends Component {
         </form>
         <h5>
           Need an account?
-          <Link to="/register"> Register Here!</Link>
+          <Link to="/register" className="text-blue-600"> Register Here!</Link>
         </h5>
       </div>
       
