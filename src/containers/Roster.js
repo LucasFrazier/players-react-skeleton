@@ -64,7 +64,7 @@ export default class Roster extends Component {
               <button 
                 className="delete is-danger" 
                 onClick={() => this.handleDelete(player.id)}
-              />
+              >DELETE</button>
             </th>
           </tr>
           ))}

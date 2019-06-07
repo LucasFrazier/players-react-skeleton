@@ -6,8 +6,8 @@ export default class LandingPage extends Component {
     return (
       <div>
         Here's the Landing Page.
-        <Link to='/login'>Login</Link>
-        <Link to='/register'>Register</Link>
+        <Link to='/login'> Login </Link>
+        <Link to='/register'> Register </Link>
       </div>
     )
   }

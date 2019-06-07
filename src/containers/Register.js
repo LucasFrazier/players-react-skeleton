@@ -308,7 +308,7 @@ export default class Register extends Component {
           
           <div className="mt-3">
             <p className="">
-              <button id="register" className="bg-green-500 hover:bg-green-700 text-white py-2 px-3 rounded" type="submit">
+              <button id="register" className="bg-teal-500 hover:bg-teal-700 text-white py-2 px-3 rounded" type="submit">
                   Register
               </button>
             </p>

@@ -94,7 +94,7 @@ export default class Login extends Component {
           {this.state.loginError && <p className="help is-danger">Please Enter Username & Password</p>}
           <div className="mt-3">
             <p className="text-center">
-              <button id="login" className="bg-green-500 hover:bg-green-700 text-white py-2 px-3 rounded items-center" type="submit">
+              <button id="login" className="bg-teal-500 hover:bg-teal-700 text-white py-2 px-3 rounded items-center" type="submit">
                 Login
               </button>
             </p>
