@@ -125,76 +125,87 @@ export default class Register extends Component {
 
   render() {
     return (
-      <div className="container">
-        <form onSubmit={this.handleSubmit}>
+      <div className="p-6">
+        <form className="mb-0" onSubmit={this.handleSubmit}>
 
-        <div className="field">
-        <label className="label is-marginless">First Name</label>
-        {this.state.ErrorFirstName && <p className="help is-danger is-marginless">Please Enter First Name!</p>}
-          <p className="control has-icons-left has-icons-right">
-            <input 
-              id="firstName" 
-              className={this.state.ErrorFirstName ? 'input is-danger is-marginless' : 'input'}
-              type="text" 
-              placeholder="First Name"
-              value={this.state.firstName}
-              onChange={this.handleChange}
-            />
-            <span className="icon is-small is-left">
-              <i className="fas fa-user"></i>
-            </span>
-            <span className="icon is-small is-right">
-              {/* <i className="fas fa-check"></i> */}
-            </span>
-          </p>
-        </div>
-        <div className="field">
-        <label className="label is-marginless">Last Name</label>
-        {this.state.ErrorLastName && <p className="help is-danger is-marginless">Please Enter Last Name!</p>}
-          <p className="control has-icons-left has-icons-right">
-            <input
-              id="lastName"
-              className={this.state.ErrorLastName ? 'input is-danger' : 'input'}
-              type="text"
-              placeholder="Last Name"
-              value={this.state.lastName}
-              onChange={this.handleChange}
-            />
-            <span className="icon is-small is-left">
-              <i className="fas fa-user"></i>
-            </span>
-            <span className="icon is-small is-right">
-              {/* <i className="fas fa-check"></i> */}
-            </span>
-          </p>
-        </div>
-        <div className="field">
-        <label className="label is-marginless">Rating</label>
+        <div className="">
+            <label className="text-base font-bold block m-0 leading-normal">First Name</label>
+            {this.state.ErrorFirstName && <p className="">Please Enter First Name!</p>}
+            <p className="">
+              <input 
+                id="firstName" 
+                className="pr-8 pl-8 rounded shadow-inner w-full h-8 border border-gray-400"
+                type="text" 
+                placeholder="First Name"
+                value={this.state.firstName}
+                onChange={this.handleChange}
+              />
+              {/* This icon is supposed to be to the left of "First Name" */}
+              {/* <span className="">
+                <i className="fas fa-user"></i>
+              </span> */}
+              {/* This icon is supposed to be on the right of the input field when there is a validation error */}
+              {/* {this.state.ErrorFirstName && (
+              <span className="icon is-small is-right">
+                <i className="fas fa-exclamation-triangle" />
+              </span>
+              )} */}
+            </p>
+          </div>
+
+          <div className="mt-3">
+          <label className="text-base font-bold block m-0 leading-normal">Last Name</label>
+          {this.state.ErrorLastName && <p className="help is-danger is-marginless">Please Enter Last Name!</p>}
+            <p className="">
+              <input
+                id="lastName"
+                className="pr-8 pl-8 rounded shadow-inner w-full h-8 border border-gray-400"
+                type="text"
+                placeholder="Last Name"
+                value={this.state.lastName}
+                onChange={this.handleChange}
+              />
+              {/* <span className="icon is-small is-left">
+                <i className="fas fa-user"></i>
+              </span>
+              {this.state.ErrorLastName && (
+              <span className="icon is-small is-right">
+                <i className="fas fa-exclamation-triangle" />
+              </span>
+              )} */}
+            </p>
+          </div>
+
+        <div className="">
+        <label className="text-base font-bold block m-0 leading-normal">Rating</label>
         {this.state.ErrorRating && <p className="help is-danger is-marginless">Please Enter a Rating from 0 to 10!</p>}
-          <p className="control has-icons-left has-icons-right">
+          <p className="">
             <input 
               id="rating"
-              className={this.state.ErrorRating ? 'input is-danger' : 'input'}
+              // className={this.state.ErrorRating ? 'input is-danger' : 'input'}
+              className="pr-8 pl-8 rounded shadow-inner w-full h-8 border border-gray-400"
               type="text" 
               placeholder="Rating"
               value={this.state.rating}
               onChange={this.handleChange}
             />
-            <span className="icon is-small is-left">
+            {/* <span className="icon is-small is-left">
               <i className="fas fa-star"></i>
-            </span>
-            <span className="icon is-small is-right">
-              {/* <i className="fas fa-check"></i> */}
-            </span>
+            </span> */}
+            {/* <span className="icon is-small is-right">
+              <i className="fas fa-check"></i>
+            </span> */}
           </p>
         </div>
-        <div className="field">
-        <label className="label is-marginless">Handedness</label>
-          <div className="control">
-            <div className="select is-primary">
+
+        <div className="mt-3">
+        <label className="text-base font-bold block m-0 leading-normal">Handedness</label>
+          <div className="">
+            <div className="">
               <select 
               id="handedness"
-              className={this.state.handedness ? 'input is-danger' : 'input'}
+              // className={this.state.handedness ? 'input is-danger' : 'input'}
+              className="pr-8 pl-8 rounded shadow-inner h-8 border border-gray-400"
               type="text"
               value={this.state.handedness}
               onChange={this.handleChange}
@@ -205,12 +216,16 @@ export default class Register extends Component {
             </div>
           </div>
         </div>
-        <div className="field">
-          <p className="control">
-            <button id="create" className="button is-primary" type="submit">
+
+        <div className="mt-6">
+          <p className="">
+            <button id="create" className="bg-teal-500 hover:bg-teal-700 text-white py-2 px-3 rounded" type="submit">
               Create
             </button>
           </p>
+        </div>
+        <div className="mt-6">
+            <Link to='/roster' className="bg-red-500 hover:bg-red-700 text-white py-3 px-3 rounded">Cancel</Link>
         </div>
         </form>
       </div>

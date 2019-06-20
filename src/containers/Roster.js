@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Roster extends Component {
   constructor(props) {
@@ -7,8 +8,12 @@ export default class Roster extends Component {
       players: [],
     };
   }
-
+  
   componentDidMount() {
+    this.getPlayers();
+  }
+
+  getPlayers = () => {
     fetch('https://players-api.developer.alchemy.codes/api/players', {
         method: 'GET',
         headers: {
@@ -27,6 +32,7 @@ export default class Roster extends Component {
   }
 
   handleDelete(id) {
+    const { players } = this.state;
     fetch(`https://players-api.developer.alchemy.codes/api/players/${id}`, {
       method: 'DELETE',
       headers: {
@@ -38,7 +44,7 @@ export default class Roster extends Component {
     .catch(error => console.error('Error:', error))
     .then(response => {
       response.success === true &&
-      this.setState({ state: this.state });
+      this.getPlayers();
     });
   }
 
@@ -47,28 +53,35 @@ export default class Roster extends Component {
       <div>
         <h1 className="title">Roster</h1>
         <table className="table">
-        <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Rating</th>
-          <th>Handedness</th>
-          <th></th>
-        </tr>
-        {this.state.players.map(player => (
-          <tr>
-            <th key={player.id}>{player.first_name}</th>
-            <th>{player.last_name}</th>
-            <th>{player.rating}</th>
-            <th>{player.handedness}</th>
-            <th>
-              <button 
-                className="delete is-danger" 
-                onClick={() => this.handleDelete(player.id)}
-              >DELETE</button>
-            </th>
-          </tr>
-          ))}
+          <thead>
+            <tr>
+              <td>First Name</td>
+              <td>Last Name</td>
+              <td>Rating</td>
+              <td>Handedness</td>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.players.map( (player, index) => (
+              <tr>
+                <td key={player.id}>{player.first_name}</td>
+                <td>{player.last_name}</td>
+                <td>{player.rating}</td>
+                <td>{player.handedness}</td>
+                <td>
+                  <button 
+                    className="bg-red-500 hover:bg-red-700 text-white py-1 px-3 rounded" 
+                    onClick={() => this.handleDelete(player.id, index)}
+                  >DELETE</button>
+                </td>
+              </tr>
+              ))}
+          </tbody>   
         </table>
+        <div className="my-8">
+            <Link to='/player/new' className="bg-teal-500 hover:bg-teal-700 text-white py-2 px-3 rounded">Add Player</Link>
+        </div>
       </div>
     )
   }

@@ -165,7 +165,7 @@ export default class Register extends Component {
 
   render() {
     return (
-      <div className="p-6 border">
+      <div className="p-6">
         <form className="mb-0" onSubmit={this.handleSubmit}>
           
           <div className="">
@@ -180,14 +180,16 @@ export default class Register extends Component {
                 value={this.state.firstName}
                 onChange={this.handleChange}
               />
+              {/* This icon is supposed to be to the left of "First Name" */}
               {/* <span className="">
                 <i className="fas fa-user"></i>
               </span> */}
-              {this.state.ErrorFirstName && (
+              {/* This icon is supposed to be on the right of the input field when there is a validation error */}
+              {/* {this.state.ErrorFirstName && (
               <span className="icon is-small is-right">
                 <i className="fas fa-exclamation-triangle" />
               </span>
-              )}
+              )} */}
             </p>
           </div>
           
