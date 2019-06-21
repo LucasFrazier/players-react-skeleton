@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import Auth from '@aws-amplify/auth';
-import Analytics from '@aws-amplify/analytics';
-import { withAuthenticator } from 'aws-amplify-react';
-import awsconfig from '../aws-exports';
+// import Auth from '@aws-amplify/auth';
+// import Analytics from '@aws-amplify/analytics';
+// import { withAuthenticator } from 'aws-amplify-react';
+// import awsconfig from '../aws-exports';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './Routes';
 import NavBar from './NavBar';
 
 // retrieve temporary AWS credentials and sign requests
-Auth.configure(awsconfig);
+// Auth.configure(awsconfig);
 // send analytics events to Amazon Pinpoint
-Analytics.configure(awsconfig);
+// Analytics.configure(awsconfig);
 
 class App extends Component {
 

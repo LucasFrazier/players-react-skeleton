@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom'
 
 export default class Roster extends Component {
   constructor(props) {
     super(props);
     this.state = {
       players: [],
+      redirect: false,
     };
   }
   
@@ -48,23 +50,37 @@ export default class Roster extends Component {
     });
   }
 
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    })
+  }
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      window.localStorage.clear();
+      return <Redirect to='/' />
+    }
+  }
+
   render() {
     return (
-      <div>
-        <h1 className="title">Roster</h1>
-        <table className="table">
+      <div className="p-6">
+      {this.renderRedirect()}
+        <h1 className="">Roster</h1>
+        <table className="">
           <thead>
             <tr>
-              <td>First Name</td>
-              <td>Last Name</td>
+              <td>FN</td>
+              <td>LN</td>
               <td>Rating</td>
-              <td>Handedness</td>
+              <td>Handed</td>
               <td></td>
             </tr>
           </thead>
           <tbody>
             {this.state.players.map( (player, index) => (
-              <tr>
+              <tr key={index}>
                 <td key={player.id}>{player.first_name}</td>
                 <td>{player.last_name}</td>
                 <td>{player.rating}</td>
@@ -82,6 +98,12 @@ export default class Roster extends Component {
         <div className="my-8">
             <Link to='/player/new' className="bg-teal-500 hover:bg-teal-700 text-white py-2 px-3 rounded">Add Player</Link>
         </div>
+        <button 
+          className="bg-red-500 hover:bg-red-700 text-white py-1 px-3 rounded" 
+          onClick={this.setRedirect}
+        >
+        Log Out
+        </button>
       </div>
     )
   }

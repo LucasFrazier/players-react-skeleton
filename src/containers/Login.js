@@ -55,7 +55,7 @@ export default class Login extends Component {
   
   render() {
     return (
-      <div className="p-6 border">
+      <div className="p-6">
         <form className="mb-0" onSubmit={this.handleSubmit}>
           <div className="">
             <label className="text-base font-bold block m-0 leading-normal">Email</label>

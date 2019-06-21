@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Discovery } from 'aws-sdk/clients/all';
+import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
+// import { Discovery } from 'aws-sdk/clients/all';
 
 export default class NavBar extends Component {
   constructor(props) {
@@ -44,7 +46,7 @@ export default class NavBar extends Component {
               </a>
             </div>
             <div>
-              <a href="#" className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Download</a>
+              <button className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Log Out</button>
             </div>
           </div>
         </nav>
