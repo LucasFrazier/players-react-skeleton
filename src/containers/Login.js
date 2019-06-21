@@ -91,7 +91,7 @@ export default class Login extends Component {
             </div>
           </div>
 
-          {this.state.loginError && <p className="help is-danger">Please Enter Username & Password</p>}
+          {this.state.loginError && <p className="mt-3 text-red-500">Please Enter Username & Password</p>}
           <div className="mt-3">
             <p className="text-center">
               <button id="login" className="bg-teal-500 hover:bg-teal-700 text-white py-2 px-3 rounded items-center" type="submit">
@@ -100,10 +100,10 @@ export default class Login extends Component {
             </p>
           </div>
         </form>
-        <h5>
+        <div className="mt-3">
           Need an account?
           <Link to="/register" className="text-blue-600"> Register Here!</Link>
-        </h5>
+        </div>
       </div>
       
       // <div className="container bg-yellow-500">

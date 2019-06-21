@@ -170,7 +170,7 @@ export default class Register extends Component {
           
           <div className="">
             <label className="text-base font-bold block m-0 leading-normal">First Name</label>
-            {this.state.ErrorFirstName && <p className="">Please Enter First Name!</p>}
+            {this.state.ErrorFirstName && <p className="text-red-500">Please Enter First Name!</p>}
             <p className="">
               <input 
                 id="firstName" 
@@ -195,7 +195,7 @@ export default class Register extends Component {
           
           <div className="mt-3">
           <label className="text-base font-bold block m-0 leading-normal">Last Name</label>
-          {this.state.ErrorLastName && <p className="help is-danger is-marginless">Please Enter Last Name!</p>}
+          {this.state.ErrorLastName && <p className="text-red-500">Please Enter Last Name!</p>}
             <p className="">
               <input
                 id="lastName"
@@ -264,7 +264,7 @@ export default class Register extends Component {
           
           <div className="mt-3">
             <label className="text-base font-bold block m-0 leading-normal">Password</label>
-            {this.state.ErrorPassword && <p className="help is-danger is-marginless">Please Enter Password!</p>}
+            {this.state.ErrorPassword && <p className="text-red-500">Please Enter Password!</p>}
             <p className="">
               <input
                 id="password"
@@ -287,7 +287,7 @@ export default class Register extends Component {
           
           <div className="mt-3">
             <label className="text-base font-bold block m-0 leading-normal">Confirm Password</label>
-            {this.state.ErrorVerifyPassword && <p className="help is-danger is-marginless">Password and Confirmation Password Do Not Match!</p>}
+            {this.state.ErrorVerifyPassword && <p className="text-red-500">Password and Confirmation Password Do Not Match!</p>}
             <p className="">
               <input
                 id="confirmPassword"

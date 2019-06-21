@@ -130,7 +130,7 @@ export default class Register extends Component {
 
         <div className="">
             <label className="text-base font-bold block m-0 leading-normal">First Name</label>
-            {this.state.ErrorFirstName && <p className="">Please Enter First Name!</p>}
+            {this.state.ErrorFirstName && <p className="text-red-500">Please Enter First Name!</p>}
             <p className="">
               <input 
                 id="firstName" 
@@ -155,7 +155,7 @@ export default class Register extends Component {
 
           <div className="mt-3">
           <label className="text-base font-bold block m-0 leading-normal">Last Name</label>
-          {this.state.ErrorLastName && <p className="help is-danger is-marginless">Please Enter Last Name!</p>}
+          {this.state.ErrorLastName && <p className="text-red-500">Please Enter Last Name!</p>}
             <p className="">
               <input
                 id="lastName"
@@ -178,7 +178,7 @@ export default class Register extends Component {
 
         <div className="">
         <label className="text-base font-bold block m-0 leading-normal">Rating</label>
-        {this.state.ErrorRating && <p className="help is-danger is-marginless">Please Enter a Rating from 0 to 10!</p>}
+        {this.state.ErrorRating && <p className="text-red-500">Please Enter a Rating from 0 to 10!</p>}
           <p className="">
             <input 
               id="rating"
