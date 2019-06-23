@@ -130,7 +130,7 @@ export default class Register extends Component {
 
         <div className="">
             <label className="text-base font-bold block m-0 leading-normal">FIRST NAME</label>
-            <p className="">
+            <p className="relative">
               <input 
                 id="firstName" 
                 className="pr-8 pl-8 rounded shadow-inner w-full h-8 border border-gray-400"
@@ -138,24 +138,22 @@ export default class Register extends Component {
                 placeholder="First Name"
                 value={this.state.firstName}
                 onChange={this.handleChange}
-                />
-              {/* This icon is supposed to be to the left of "First Name" */}
-              {/* <span className="">
-                <i className="fas fa-user"></i>
-              </span> */}
-              {/* This icon is supposed to be on the right of the input field when there is a validation error */}
-              {/* {this.state.ErrorFirstName && (
-                <span className="icon is-small is-right">
-                <i className="fas fa-exclamation-triangle" />
+                />              
+              <span className="absolute left-0 pt-2 pl-2">
+                <i className="fas fa-user" />
+              </span>              
+              {this.state.ErrorFirstName && (
+                <span className="absolute right-0 pt-2 pr-2">
+                  <i className="fas fa-exclamation-triangle text-red-500" />
                 </span>
-              )} */}
+              )}
             </p>
             {this.state.ErrorFirstName && <p className="text-xs text-red-500">Please Enter First Name!</p>}
           </div>
 
           <div className="mt-3">
           <label className="text-base font-bold block m-0 leading-normal">LAST NAME</label>
-            <p className="">
+            <p className="relative">
               <input
                 id="lastName"
                 className="pr-8 pl-8 rounded shadow-inner w-full h-8 border border-gray-400"
@@ -164,21 +162,21 @@ export default class Register extends Component {
                 value={this.state.lastName}
                 onChange={this.handleChange}
                 />
-              {/* <span className="icon is-small is-left">
-                <i className="fas fa-user"></i>
+              <span className="absolute left-0 pt-2 pl-2">
+                <i className="fas fa-user" />
+              </span>                
+              {this.state.ErrorLastName && (
+                <span className="absolute right-0 pt-2 pr-2">
+                  <i className="fas fa-exclamation-triangle text-red-500" />
                 </span>
-                {this.state.ErrorLastName && (
-                  <span className="icon is-small is-right">
-                  <i className="fas fa-exclamation-triangle" />
-                  </span>
-                )} */}
+              )}
             </p>
             {this.state.ErrorLastName && <p className="text-xs text-red-500">Please Enter Last Name!</p>}
           </div>
 
-        <div className="">
+        <div className="mt-3">
         <label className="text-base font-bold block m-0 leading-normal">RATING</label>
-          <p className="">
+          <p className="relative">
             <input 
               id="rating"
               // className={this.state.ErrorRating ? 'input is-danger' : 'input'}
@@ -188,12 +186,14 @@ export default class Register extends Component {
               value={this.state.rating}
               onChange={this.handleChange}
               />
-            {/* <span className="icon is-small is-left">
-              <i className="fas fa-star"></i>
-            </span> */}
-            {/* <span className="icon is-small is-right">
-              <i className="fas fa-check"></i>
-            </span> */}
+            <span className="absolute left-0 pt-2 pl-2">
+              <i className="fas fa-star" />
+            </span>
+            {this.state.ErrorRating && (
+              <span className="absolute right-0 pt-2 pr-2">
+                <i className="fas fa-exclamation-triangle text-red-500" />
+              </span>
+            )}
           </p>
           {this.state.ErrorRating && <p className="text-xs text-red-500">Please Enter a Rating from 0 to 10!</p>}
         </div>

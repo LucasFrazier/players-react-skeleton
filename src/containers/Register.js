@@ -170,7 +170,7 @@ export default class Register extends Component {
           
           <div className="">
             <label className="text-base font-bold block m-0 leading-normal">FIRST NAME</label>
-            <p className="">
+            <p className="relative">
               <input 
                 id="firstName" 
                 className="pr-8 pl-8 rounded shadow-inner w-full h-8 border border-gray-400"
@@ -179,23 +179,21 @@ export default class Register extends Component {
                 value={this.state.firstName}
                 onChange={this.handleChange}
                 />
-              {/* This icon is supposed to be to the left of "First Name" */}
-              {/* <span className="">
+              <span className="absolute left-0 pt-2 pl-2">
                 <i className="fas fa-user"></i>
-              </span> */}
-              {/* This icon is supposed to be on the right of the input field when there is a validation error */}
-              {/* {this.state.ErrorFirstName && (
-                <span className="icon is-small is-right">
-                <i className="fas fa-exclamation-triangle" />
+              </span>
+              {this.state.ErrorFirstName && (
+                <span className="absolute right-0 pt-2 pr-2">
+                  <i className="fas fa-exclamation-triangle text-red-500" />
                 </span>
-              )} */}
+              )}
             </p>
             {this.state.ErrorFirstName && <p className="text-sm text-red-500">Please Enter First Name!</p>}
           </div>
           
           <div className="mt-3">
           <label className="text-base font-bold block m-0 leading-normal">LAST NAME</label>
-            <p className="">
+            <p className="relative">
               <input
                 id="lastName"
                 className="pr-8 pl-8 rounded shadow-inner w-full h-8 border border-gray-400"
@@ -204,21 +202,21 @@ export default class Register extends Component {
                 value={this.state.lastName}
                 onChange={this.handleChange}
                 />
-              {/* <span className="icon is-small is-left">
+              <span className="absolute left-0 pt-2 pl-2">
                 <i className="fas fa-user"></i>
-                </span>
+              </span>
                 {this.state.ErrorLastName && (
-                  <span className="icon is-small is-right">
-                  <i className="fas fa-exclamation-triangle" />
+                  <span className="absolute right-0 pt-2 pr-2">
+                    <i className="fas fa-exclamation-triangle text-red-500" />
                   </span>
-                )} */}
+                )}
             </p>
             {this.state.ErrorLastName && <p className="text-sm text-red-500">Please Enter Last Name!</p>}
           </div>
           
           <div className="mt-3">
             <label className="text-base font-bold block m-0 leading-normal">EMAIL</label>
-            <p className="">
+            <p className="relative">
               <input
                 id="email"
                 className="pr-8 pl-8 rounded shadow-inner w-full h-8 border border-gray-400"
@@ -227,21 +225,21 @@ export default class Register extends Component {
                 value={this.state.email}
                 onChange={this.handleChange}
               />
-              {/* <span className="icon is-small is-left">
+              <span className="absolute left-0 pt-2 pl-2">
                 <i className="fas fa-envelope" />
               </span>
               {this.state.ErrorEmail && (
-                <span className="icon is-small is-right">
-                  <i className="fas fa-exclamation-triangle" />
+                <span className="absolute right-0 pt-2 pr-2">
+                  <i className="fas fa-exclamation-triangle text-red-500" />
                 </span>
-              )} */}
+              )}
             </p>
             {this.state.ErrorEmail && <p className="text-sm text-red-500">Please Enter Email!</p>}
           </div>
           
           <div className="mt-3">
             <label className="text-base font-bold block m-0 leading-normal">CONFIRM EMAIL</label>
-            <p className="">
+            <p className="relative">
               <input
                 id="confirmEmail"
                 className="pr-8 pl-8 rounded shadow-inner w-full h-8 border border-gray-400"
@@ -250,22 +248,21 @@ export default class Register extends Component {
                 value={this.state.verifyEmail}
                 onChange={this.handleChange}
                 />
-              {/* <span className="icon is-small is-left">
+              <span className="absolute left-0 pt-2 pl-2">
                 <i className="fas fa-envelope" />
+              </span>  
+              {this.state.ErrorVerifyEmail && (
+                <span className="absolute right-0 pt-2 pr-2">
+                  <i className="fas fa-exclamation-triangle text-red-500" />
                 </span>
-                
-                {this.state.ErrorVerifyEmail && (
-                  <span className="icon is-small is-right">
-                  <i className="fas fa-exclamation-triangle" />
-                  </span>
-                )} */}
+              )}
             </p>
             {this.state.ErrorVerifyEmail && <p className="text-sm text-red-500">Email and Confirm Email Do Not Match!</p>}
           </div>
           
           <div className="mt-3">
             <label className="text-base font-bold block m-0 leading-normal">PASSWORD</label>
-            <p className="">
+            <p className="relative">
               <input
                 id="password"
                 className="pr-8 pl-8 rounded shadow-inner w-full h-8 border border-gray-400"
@@ -274,21 +271,21 @@ export default class Register extends Component {
                 value={this.state.password}
                 onChange={this.handleChange}
                 />
-              {/* <span className="icon is-small is-left">
+              <span className="absolute left-0 pt-2 pl-2">
                 <i className="fas fa-lock" />
+              </span>                
+              {this.state.ErrorPassword && (
+                <span className="absolute right-0 pt-2 pr-2">
+                  <i className="fas fa-exclamation-triangle text-red-500" />
                 </span>
-                {this.state.ErrorPassword && (
-                  <span className="icon is-small is-right">
-                  <i className="fas fa-exclamation-triangle" />
-                  </span>
-                )} */}
+              )}
             </p>
             {this.state.ErrorPassword && <p className="text-sm text-red-500">Please Enter Password!</p>}
           </div>
           
           <div className="mt-3">
             <label className="text-base font-bold block m-0 leading-normal">CONFIRM PASSWORD</label>
-            <p className="">
+            <p className="relative">
               <input
                 id="confirmPassword"
                 className="pr-8 pl-8 rounded shadow-inner w-full h-8 border border-gray-400"
@@ -297,14 +294,14 @@ export default class Register extends Component {
                 value={this.state.confirmPassword}
                 onChange={this.handleChange}
                 />
-              {/* <span className="icon is-small is-left">
+              <span className="absolute left-0 pt-2 pl-2">
                 <i className="fas fa-lock" />
+              </span>
+              {this.state.ErrorVerifyPassword && (
+                <span className="absolute right-0 pt-2 pr-2">
+                  <i className="fas fa-exclamation-triangle text-red-500" />
                 </span>
-                {this.state.ErrorVerifyPassword && (
-                  <span className="icon is-small is-right">
-                  <i className="fas fa-exclamation-triangle" />
-                  </span>
-                )} */}
+              )}
             </p>
             {this.state.ErrorVerifyPassword && <p className="text-sm text-red-500">Password and Confirm Password Do Not Match!</p>}
           </div>

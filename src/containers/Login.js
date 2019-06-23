@@ -59,7 +59,7 @@ export default class Login extends Component {
         <form className="mb-0" onSubmit={this.handleSubmit}>
           <div className="">
             <label className="text-base font-bold block m-0 leading-normal">EMAIL</label>
-            <div className="">
+            <div className="relative">
               <input
                 id="email"
                 className="pr-8 pl-8 rounded shadow-inner w-full h-10 border border-gray-400"
@@ -68,15 +68,15 @@ export default class Login extends Component {
                 value={this.state.email}
                 onChange={this.handleChange}
               />
-              {/* <span className="">
+              <span className="absolute left-0 pt-3 pl-2">
                 <i className="fas fa-envelope" />
-              </span> */}
+              </span>
             </div>
           </div>
 
           <div className="mt-3">
             <label className="text-base font-bold block m-0 leading-normal">PASSWORD</label>
-            <div className="">
+            <div className="relative">
               <input
                 id="password"
                 className="pr-8 pl-8 rounded shadow-inner w-full h-10 border border-gray-400"
@@ -85,9 +85,9 @@ export default class Login extends Component {
                 value={this.state.password}
                 onChange={this.handleChange}
               />
-              {/* <span className="">
+              <span className="absolute left-0 pt-3 pl-2">
                 <i className="fas fa-lock" />
-              </span> */}
+              </span>
             </div>
           </div>
 

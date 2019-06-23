@@ -27,7 +27,7 @@ export default class NavBar extends Component {
           <div className="flex items-center flex-shrink-0 text-white mr-6">
             {/* <svg className="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg> */}
             <img className="h-8 w-8 mr-2" src="https://cdn3.iconfinder.com/data/icons/universal-signs-symbols/128/hand-rock-ol-512.png" />
-            <Link to="/" className="font-semibold text-xl tracking-tight">MUSICIANS FROM HELL</Link>
+            <Link to="/" className="font-semibold text-xl tracking-tight">MUSIC FROM HELL</Link>
           </div>
           <div className="block lg:hidden" onClick={this.toggleBurger}>
             <button className="flex items-center px-3 py-2 border rounded text-white">
@@ -35,20 +35,31 @@ export default class NavBar extends Component {
             </button>
           </div>
           <div className={showBurger ?  "block w-full flex-grow lg:flex lg:items-center lg:w-auto" : "hidden w-full flex-grow lg:flex lg:items-center lg:w-auto"}>
-            <div className="text-sm lg:flex-grow">
-              <a href="/login" className="block mt-4 lg:inline-block lg:mt-0 text-white font-semibold mr-4">
-                LOGIN
-              </a>
-              <a href="/register" className="block mt-4 lg:inline-block lg:mt-0 text-white font-semibold mr-4">
-                REGISTER
+          {window.localStorage.user ? (
+            <div className="text-sm lg:flex-grow">                            
+              <a href="/roster" className="block mt-4 lg:inline-block lg:mt-0 text-white font-semibold">
+                ROSTER
               </a>
               <a href="/player/new" className="block mt-4 lg:inline-block lg:mt-0 text-white font-semibold">
                 NEW PLAYER
               </a>
             </div>
-            <div>
-              <button className="inline-block text-sm px-4 py-2 leading-none border-2 rounded text-white font-semibold border-white mt-4 lg:mt-0">LOG OUT</button>
+          ) : (
+            <div className="text-sm lg:flex-grow">              
+              <a href="/login" className="block mt-4 lg:inline-block lg:mt-0 text-white font-semibold mr-4">
+                LOG IN
+              </a>
+              <a href="/register" className="block mt-4 lg:inline-block lg:mt-0 text-white font-semibold mr-4">
+                REGISTER
+              </a>              
             </div>
+          )}
+            {window.localStorage.user && 
+              <div>
+                <button className="inline-block text-sm px-4 py-2 leading-none border-2 rounded text-white font-semibold border-white mt-4 lg:mt-0">LOG OUT</button>
+              </div>
+            }
+            
           </div>
         </nav>
       </div>
