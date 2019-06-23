@@ -169,8 +169,7 @@ export default class Register extends Component {
         <form className="mb-0" onSubmit={this.handleSubmit}>
           
           <div className="">
-            <label className="text-base font-bold block m-0 leading-normal">First Name</label>
-            {this.state.ErrorFirstName && <p className="text-red-500">Please Enter First Name!</p>}
+            <label className="text-base font-bold block m-0 leading-normal">FIRST NAME</label>
             <p className="">
               <input 
                 id="firstName" 
@@ -179,23 +178,23 @@ export default class Register extends Component {
                 placeholder="First Name"
                 value={this.state.firstName}
                 onChange={this.handleChange}
-              />
+                />
               {/* This icon is supposed to be to the left of "First Name" */}
               {/* <span className="">
                 <i className="fas fa-user"></i>
               </span> */}
               {/* This icon is supposed to be on the right of the input field when there is a validation error */}
               {/* {this.state.ErrorFirstName && (
-              <span className="icon is-small is-right">
+                <span className="icon is-small is-right">
                 <i className="fas fa-exclamation-triangle" />
-              </span>
+                </span>
               )} */}
             </p>
+            {this.state.ErrorFirstName && <p className="text-sm text-red-500">Please Enter First Name!</p>}
           </div>
           
           <div className="mt-3">
-          <label className="text-base font-bold block m-0 leading-normal">Last Name</label>
-          {this.state.ErrorLastName && <p className="text-red-500">Please Enter Last Name!</p>}
+          <label className="text-base font-bold block m-0 leading-normal">LAST NAME</label>
             <p className="">
               <input
                 id="lastName"
@@ -204,20 +203,21 @@ export default class Register extends Component {
                 placeholder="Last Name"
                 value={this.state.lastName}
                 onChange={this.handleChange}
-              />
+                />
               {/* <span className="icon is-small is-left">
                 <i className="fas fa-user"></i>
-              </span>
-              {this.state.ErrorLastName && (
-              <span className="icon is-small is-right">
-                <i className="fas fa-exclamation-triangle" />
-              </span>
-              )} */}
+                </span>
+                {this.state.ErrorLastName && (
+                  <span className="icon is-small is-right">
+                  <i className="fas fa-exclamation-triangle" />
+                  </span>
+                )} */}
             </p>
+            {this.state.ErrorLastName && <p className="text-sm text-red-500">Please Enter Last Name!</p>}
           </div>
           
           <div className="mt-3">
-            <label className="text-base font-bold block m-0 leading-normal">Email</label>
+            <label className="text-base font-bold block m-0 leading-normal">EMAIL</label>
             <p className="">
               <input
                 id="email"
@@ -236,11 +236,11 @@ export default class Register extends Component {
                 </span>
               )} */}
             </p>
+            {this.state.ErrorEmail && <p className="text-sm text-red-500">Please Enter Email!</p>}
           </div>
           
           <div className="mt-3">
-            <label className="text-base font-bold block m-0 leading-normal">Confirm Email</label>
-            {this.state.ErrorVerifyEmail && <p className="help is-danger is-marginless">Email and Confirmation Email Do Not Match!</p>}
+            <label className="text-base font-bold block m-0 leading-normal">CONFIRM EMAIL</label>
             <p className="">
               <input
                 id="confirmEmail"
@@ -249,22 +249,22 @@ export default class Register extends Component {
                 placeholder="Confirm Email"
                 value={this.state.verifyEmail}
                 onChange={this.handleChange}
-              />
+                />
               {/* <span className="icon is-small is-left">
                 <i className="fas fa-envelope" />
-              </span>
-
-              {this.state.ErrorVerifyEmail && (
-                <span className="icon is-small is-right">
-                  <i className="fas fa-exclamation-triangle" />
                 </span>
-              )} */}
+                
+                {this.state.ErrorVerifyEmail && (
+                  <span className="icon is-small is-right">
+                  <i className="fas fa-exclamation-triangle" />
+                  </span>
+                )} */}
             </p>
+            {this.state.ErrorVerifyEmail && <p className="text-sm text-red-500">Email and Confirm Email Do Not Match!</p>}
           </div>
           
           <div className="mt-3">
-            <label className="text-base font-bold block m-0 leading-normal">Password</label>
-            {this.state.ErrorPassword && <p className="text-red-500">Please Enter Password!</p>}
+            <label className="text-base font-bold block m-0 leading-normal">PASSWORD</label>
             <p className="">
               <input
                 id="password"
@@ -273,21 +273,21 @@ export default class Register extends Component {
                 placeholder="Password"
                 value={this.state.password}
                 onChange={this.handleChange}
-              />
+                />
               {/* <span className="icon is-small is-left">
                 <i className="fas fa-lock" />
-              </span>
-              {this.state.ErrorPassword && (
-                <span className="icon is-small is-right">
-                  <i className="fas fa-exclamation-triangle" />
                 </span>
-              )} */}
+                {this.state.ErrorPassword && (
+                  <span className="icon is-small is-right">
+                  <i className="fas fa-exclamation-triangle" />
+                  </span>
+                )} */}
             </p>
+            {this.state.ErrorPassword && <p className="text-sm text-red-500">Please Enter Password!</p>}
           </div>
           
           <div className="mt-3">
-            <label className="text-base font-bold block m-0 leading-normal">Confirm Password</label>
-            {this.state.ErrorVerifyPassword && <p className="text-red-500">Password and Confirmation Password Do Not Match!</p>}
+            <label className="text-base font-bold block m-0 leading-normal">CONFIRM PASSWORD</label>
             <p className="">
               <input
                 id="confirmPassword"
@@ -296,22 +296,23 @@ export default class Register extends Component {
                 placeholder="Confirm Password"
                 value={this.state.confirmPassword}
                 onChange={this.handleChange}
-              />
+                />
               {/* <span className="icon is-small is-left">
                 <i className="fas fa-lock" />
-              </span>
-              {this.state.ErrorVerifyPassword && (
-                <span className="icon is-small is-right">
-                  <i className="fas fa-exclamation-triangle" />
                 </span>
-              )} */}
+                {this.state.ErrorVerifyPassword && (
+                  <span className="icon is-small is-right">
+                  <i className="fas fa-exclamation-triangle" />
+                  </span>
+                )} */}
             </p>
+            {this.state.ErrorVerifyPassword && <p className="text-sm text-red-500">Password and Confirm Password Do Not Match!</p>}
           </div>
           
-          <div className="mt-3">
-            <p className="">
-              <button id="register" className="bg-teal-500 hover:bg-teal-700 text-white py-2 px-3 rounded" type="submit">
-                  Register
+          <div className="">
+            <p className="my-5">
+              <button id="register" className="bg-red-700 text-white font-semibold py-2 px-3 rounded" type="submit">
+                  REGISTER
               </button>
             </p>
           </div>

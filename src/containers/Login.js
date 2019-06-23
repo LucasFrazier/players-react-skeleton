@@ -58,7 +58,7 @@ export default class Login extends Component {
       <div className="p-6">
         <form className="mb-0" onSubmit={this.handleSubmit}>
           <div className="">
-            <label className="text-base font-bold block m-0 leading-normal">Email</label>
+            <label className="text-base font-bold block m-0 leading-normal">EMAIL</label>
             <div className="">
               <input
                 id="email"
@@ -75,7 +75,7 @@ export default class Login extends Component {
           </div>
 
           <div className="mt-3">
-            <label className="text-base font-bold block m-0 leading-normal">Password</label>
+            <label className="text-base font-bold block m-0 leading-normal">PASSWORD</label>
             <div className="">
               <input
                 id="password"
@@ -91,18 +91,18 @@ export default class Login extends Component {
             </div>
           </div>
 
-          {this.state.loginError && <p className="mt-3 text-red-500">Please Enter Username & Password</p>}
+          {this.state.loginError && <p className="mt-3 text-sm text-red-500">Please Enter Email & Password!</p>}
           <div className="mt-3">
             <p className="text-center">
-              <button id="login" className="bg-teal-500 hover:bg-teal-700 text-white py-2 px-3 rounded items-center" type="submit">
-                Login
+              <button id="login" className="bg-red-700 text-white font-semibold py-1 px-3 rounded items-center" type="submit">
+                LOG IN
               </button>
             </p>
           </div>
         </form>
         <div className="mt-3">
-          Need an account?
-          <Link to="/register" className="text-blue-600"> Register Here!</Link>
+          Need to sell your soul?
+          <Link to="/register" className="text-red-700"> Register Here!</Link>
         </div>
       </div>
       

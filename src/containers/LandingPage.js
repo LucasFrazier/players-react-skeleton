@@ -5,13 +5,17 @@ export default class LandingPage extends Component {
   render() {
     return (
       <div className="text-center p-6">
-        <div>
+        <div className="my-4 font-bold text-2xl">
+          ROCK AND ROLL<br />IS THE DEVIL'S MUSIC.
+        </div>
+        <div className="mt-2 font-bold text-xl">
+          THANK GOD.
         </div>
         <div className="my-8">
-          <Link to='/login' className="bg-teal-500 hover:bg-teal-700 text-white py-2 px-3 rounded"> Login </Link>
+          <Link to='/login' className="bg-red-700 text-white font-semibold py-2 px-3 rounded">LOG IN</Link>
         </div>
         <div className="my-8">
-          <Link to='/register' className="bg-teal-500 hover:bg-teal-700 text-white py-2 px-3 rounded"> Register </Link>
+          <Link to='/register' className="bg-black text-white font-semibold py-2 px-3 rounded">REGISTER</Link>
         </div>
       </div>
     )

@@ -129,8 +129,7 @@ export default class Register extends Component {
         <form className="mb-0" onSubmit={this.handleSubmit}>
 
         <div className="">
-            <label className="text-base font-bold block m-0 leading-normal">First Name</label>
-            {this.state.ErrorFirstName && <p className="text-red-500">Please Enter First Name!</p>}
+            <label className="text-base font-bold block m-0 leading-normal">FIRST NAME</label>
             <p className="">
               <input 
                 id="firstName" 
@@ -139,23 +138,23 @@ export default class Register extends Component {
                 placeholder="First Name"
                 value={this.state.firstName}
                 onChange={this.handleChange}
-              />
+                />
               {/* This icon is supposed to be to the left of "First Name" */}
               {/* <span className="">
                 <i className="fas fa-user"></i>
               </span> */}
               {/* This icon is supposed to be on the right of the input field when there is a validation error */}
               {/* {this.state.ErrorFirstName && (
-              <span className="icon is-small is-right">
+                <span className="icon is-small is-right">
                 <i className="fas fa-exclamation-triangle" />
-              </span>
+                </span>
               )} */}
             </p>
+            {this.state.ErrorFirstName && <p className="text-xs text-red-500">Please Enter First Name!</p>}
           </div>
 
           <div className="mt-3">
-          <label className="text-base font-bold block m-0 leading-normal">Last Name</label>
-          {this.state.ErrorLastName && <p className="text-red-500">Please Enter Last Name!</p>}
+          <label className="text-base font-bold block m-0 leading-normal">LAST NAME</label>
             <p className="">
               <input
                 id="lastName"
@@ -164,21 +163,21 @@ export default class Register extends Component {
                 placeholder="Last Name"
                 value={this.state.lastName}
                 onChange={this.handleChange}
-              />
+                />
               {/* <span className="icon is-small is-left">
                 <i className="fas fa-user"></i>
-              </span>
-              {this.state.ErrorLastName && (
-              <span className="icon is-small is-right">
-                <i className="fas fa-exclamation-triangle" />
-              </span>
-              )} */}
+                </span>
+                {this.state.ErrorLastName && (
+                  <span className="icon is-small is-right">
+                  <i className="fas fa-exclamation-triangle" />
+                  </span>
+                )} */}
             </p>
+            {this.state.ErrorLastName && <p className="text-xs text-red-500">Please Enter Last Name!</p>}
           </div>
 
         <div className="">
-        <label className="text-base font-bold block m-0 leading-normal">Rating</label>
-        {this.state.ErrorRating && <p className="text-red-500">Please Enter a Rating from 0 to 10!</p>}
+        <label className="text-base font-bold block m-0 leading-normal">RATING</label>
           <p className="">
             <input 
               id="rating"
@@ -188,7 +187,7 @@ export default class Register extends Component {
               placeholder="Rating"
               value={this.state.rating}
               onChange={this.handleChange}
-            />
+              />
             {/* <span className="icon is-small is-left">
               <i className="fas fa-star"></i>
             </span> */}
@@ -196,10 +195,11 @@ export default class Register extends Component {
               <i className="fas fa-check"></i>
             </span> */}
           </p>
+          {this.state.ErrorRating && <p className="text-xs text-red-500">Please Enter a Rating from 0 to 10!</p>}
         </div>
 
         <div className="mt-3">
-        <label className="text-base font-bold block m-0 leading-normal">Handedness</label>
+        <label className="text-base font-bold block m-0 leading-normal">HANDEDNESS</label>
           <div className="">
             <div className="">
               <select 
@@ -219,13 +219,13 @@ export default class Register extends Component {
 
         <div className="mt-6">
           <p className="">
-            <button id="create" className="bg-teal-500 hover:bg-teal-700 text-white py-2 px-3 rounded" type="submit">
-              Create
+            <button id="create" className="bg-red-700 text-white font-semibold py-2 px-3 rounded" type="submit">
+              CREATE
             </button>
           </p>
         </div>
         <div className="mt-6">
-            <Link to='/roster' className="bg-red-500 hover:bg-red-700 text-white py-3 px-3 rounded">Cancel</Link>
+            <Link to='/roster' className="bg-black text-white font-semibold py-2 px-3 rounded">CANCEL</Link>
         </div>
         </form>
       </div>

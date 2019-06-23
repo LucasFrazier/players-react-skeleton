@@ -67,42 +67,40 @@ export default class Roster extends Component {
     return (
       <div className="p-6">
       {this.renderRedirect()}
-        <h1 className="">Roster</h1>
-        <table className="">
+        <h1 className="font-bold text-2xl">THE ETERNALLY DAMNED</h1>
+        <table className="w-full table-auto">
           <thead>
-            <tr>
-              <td>FN</td>
-              <td>LN</td>
-              <td>Rating</td>
-              <td>Handed</td>
+            <tr className="font-semibold border-b-4 border-red-700">
+              <td className="pr-16">NAME</td>
+              <td className="pr-4">CHOPS</td>
+              <td className="">HANDED</td>
               <td></td>
             </tr>
           </thead>
           <tbody>
             {this.state.players.map( (player, index) => (
-              <tr key={index}>
-                <td key={player.id}>{player.first_name}</td>
-                <td>{player.last_name}</td>
+              <tr key={index} className="border-b-2 border-red-700">
+                <td key={player.id}>{player.first_name} {player.last_name}</td>
                 <td>{player.rating}</td>
-                <td>{player.handedness}</td>
+                <td className="capitalize">{player.handedness}</td>
                 <td>
                   <button 
-                    className="bg-red-500 hover:bg-red-700 text-white py-1 px-3 rounded" 
+                    className="bg-black text-white py-1 px-2 rounded-full" 
                     onClick={() => this.handleDelete(player.id, index)}
-                  >DELETE</button>
+                  >X</button>
                 </td>
               </tr>
               ))}
           </tbody>   
         </table>
         <div className="my-8">
-            <Link to='/player/new' className="bg-teal-500 hover:bg-teal-700 text-white py-2 px-3 rounded">Add Player</Link>
+            <Link to='/player/new' className="bg-red-700 text-white font-semibold py-2 px-3 rounded">ADD PLAYER</Link>
         </div>
         <button 
-          className="bg-red-500 hover:bg-red-700 text-white py-1 px-3 rounded" 
+          className="bg-BLACK text-white font-semibold py-1 px-3 rounded" 
           onClick={this.setRedirect}
         >
-        Log Out
+        LOG OUT
         </button>
       </div>
     )
