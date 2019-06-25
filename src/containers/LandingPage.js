@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 export default class LandingPage extends Component {
+  
+  componentWillMount() {
+    if (window.localStorage.user) {
+      this.props.history.push("/roster");
+    }
+  }
+  
   render() {
     return (
       <div className="text-center p-6">

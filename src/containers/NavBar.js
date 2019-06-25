@@ -26,7 +26,6 @@ export default class NavBar extends Component {
   // closeBurger = () => {
   //   this.setState({
   //     showBurger: false,
-  //     // toggleDropdown: false
   //   });
   // };
 
@@ -52,7 +51,8 @@ export default class NavBar extends Component {
 
   setRedirect = () => {
     this.setState({
-      redirect: true
+      redirect: true,
+      showBurger: false,
     })
   }
 

@@ -20,6 +20,12 @@ export default class Register extends Component {
     };
   }
 
+  componentWillMount() {
+    if (window.localStorage.user) {
+      this.props.history.push("/roster");
+    }
+  }
+
   handleChange = (event) => {
     this.setState({
       [event.target.id]: event.target.value,
@@ -42,13 +48,18 @@ export default class Register extends Component {
         })
       })
       .then(response => response.json())
-      .catch(error => console.error('Error:', error))
-      // .then(response => console.log('Success:', JSON.stringify(response)));
       .then(response => {
-        response.success === true && 
-        window.localStorage.setItem("user", JSON.stringify(response.user));
-        window.localStorage.setItem("jwt", response.token);
-        this.props.history.push("/roster");
+        if (response.success) {
+          window.localStorage.setItem("user", JSON.stringify(response.user));
+          window.localStorage.setItem("jwt", response.token);
+          this.props.history.push("/roster");
+        } else {
+          if (response.error.status_code == 409) {
+            alert("User already exists!");
+          } else {
+            alert("Something went wrong!");
+          }
+        }
       });
     }
     else {
@@ -66,7 +77,6 @@ export default class Register extends Component {
         ErrorFirstName: false,
       });
     }
-    // console.log(this.state.firstName.length !== 0)
     return this.state.firstName.length !== 0;
   }
 
@@ -80,7 +90,6 @@ export default class Register extends Component {
         ErrorLastName: false,
       });
     }
-    // console.log(this.state.lastName.length !== 0)
     return this.state.lastName.length !== 0;
   }
 
@@ -94,7 +103,6 @@ export default class Register extends Component {
         ErrorEmail: false,
       });
     }
-    // console.log(this.state.email.length !== 0)
     return this.state.email.length !== 0;
   }
 
@@ -109,7 +117,6 @@ export default class Register extends Component {
         ErrorVerifyEmail: false,
       });
     }
-    // console.log(this.state.email === this.state.confirmEmail)
     return this.state.email === this.state.confirmEmail;
   }
 
@@ -123,7 +130,6 @@ export default class Register extends Component {
         ErrorPassword: false,
       });
     }
-    // console.log(this.state.password.length !== 0)
     return this.state.password.length !== 0;
   }
 
@@ -139,7 +145,6 @@ export default class Register extends Component {
         ErrorVerifyPassword: false,
       });
     }
-    // console.log(this.state.password === this.state.confirmPassword)
     return this.state.password === this.state.confirmPassword;
   }
 
@@ -270,7 +275,6 @@ export default class Register extends Component {
                 placeholder="Password"
                 value={this.state.password}
                 onChange={this.handleChange}
-                maxLength="8"
                 />
               <span className="absolute left-0 pt-2 pl-2">
                 <i className="fas fa-lock" />
@@ -294,7 +298,6 @@ export default class Register extends Component {
                 placeholder="Confirm Password"
                 value={this.state.confirmPassword}
                 onChange={this.handleChange}
-                maxLength="8"
                 />
               <span className="absolute left-0 pt-2 pl-2">
                 <i className="fas fa-lock" />

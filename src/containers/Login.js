@@ -11,6 +11,12 @@ export default class Login extends Component {
     };
   }
 
+  componentWillMount() {
+    if (window.localStorage.user) {
+      this.props.history.push("/roster");
+    }
+  }
+
   handleChange = (event) => {
     this.setState({
       [event.target.id]: event.target.value,

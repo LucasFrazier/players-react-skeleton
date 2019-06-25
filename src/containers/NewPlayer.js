@@ -17,6 +17,12 @@ export default class Register extends Component {
     };
   }
 
+  componentWillMount() {
+    if (!window.localStorage.user) {
+      this.props.history.push("/");
+    }
+  }
+
   handleChange = (event) => {
     this.setState({
       [event.target.id]: event.target.value,
@@ -175,7 +181,7 @@ export default class Register extends Component {
           </div>
 
         <div className="mt-3">
-        <label className="text-base font-bold block m-0 leading-normal">RATING</label>
+        <label className="text-base font-bold block m-0 leading-normal">CHOPS</label>
           <p className="relative">
             <input 
               id="rating"
