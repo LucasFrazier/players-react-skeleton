@@ -7,7 +7,7 @@ export default class Roster extends Component {
     super(props);
     this.state = {
       players: [],
-      redirect: false,
+      // redirect: false,
     };
   }
   
@@ -50,23 +50,23 @@ export default class Roster extends Component {
     });
   }
 
-  setRedirect = () => {
-    this.setState({
-      redirect: true
-    })
-  }
+  // setRedirect = () => {
+  //   this.setState({
+  //     redirect: true
+  //   })
+  // }
 
-  renderRedirect = () => {
-    if (this.state.redirect) {
-      window.localStorage.clear();
-      return <Redirect to='/' />
-    }
-  }
+  // renderRedirect = () => {
+  //   if (this.state.redirect) {
+  //     window.localStorage.clear();
+  //     return <Redirect to='/' />
+  //   }
+  // }
 
   render() {
     return (
       <div className="p-6">
-      {this.renderRedirect()}
+      {/* {this.renderRedirect()} */}
         <h1 className="font-bold text-2xl">THE ETERNALLY DAMNED</h1>
         <table className="w-full table-auto">
           <thead>
@@ -96,12 +96,12 @@ export default class Roster extends Component {
         <div className="my-8">
             <Link to='/player/new' className="bg-red-700 text-white font-semibold py-2 px-3 rounded">ADD PLAYER</Link>
         </div>
-        <button 
+        {/* <button 
           className="bg-BLACK text-white font-semibold py-1 px-3 rounded" 
           onClick={this.setRedirect}
         >
         LOG OUT
-        </button>
+        </button> */}
       </div>
     )
   }

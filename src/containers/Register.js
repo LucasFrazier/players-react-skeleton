@@ -270,6 +270,7 @@ export default class Register extends Component {
                 placeholder="Password"
                 value={this.state.password}
                 onChange={this.handleChange}
+                maxLength="8"
                 />
               <span className="absolute left-0 pt-2 pl-2">
                 <i className="fas fa-lock" />
@@ -293,6 +294,7 @@ export default class Register extends Component {
                 placeholder="Confirm Password"
                 value={this.state.confirmPassword}
                 onChange={this.handleChange}
+                maxLength="8"
                 />
               <span className="absolute left-0 pt-2 pl-2">
                 <i className="fas fa-lock" />
