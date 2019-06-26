@@ -18,7 +18,7 @@ describe('Delete Player', () => {
 
 		cy.get('.delete').should($a => {
 			// should have found 3 elements
-			expect($a).to.have.length(4);
+			expect($a).to.have.length(3);
 		});
 	});
 });

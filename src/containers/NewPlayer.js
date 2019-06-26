@@ -144,7 +144,7 @@ export default class Register extends Component {
         <form className="mb-0" onSubmit={this.handleSubmit}>
 
         <div className="">
-            <label className="text-base font-bold block m-0 leading-normal">FIRST NAME</label>
+            <label className="text-base font-bold block m-0 leading-normal uppercase">First Name</label>
             <p className="relative">
               <input 
                 id="firstName" 
@@ -167,7 +167,7 @@ export default class Register extends Component {
           </div>
 
           <div className="mt-3">
-          <label className="text-base font-bold block m-0 leading-normal">LAST NAME</label>
+          <label className="text-base font-bold block m-0 leading-normal uppercase">Last Name</label>
             <p className="relative">
               <input
                 id="lastName"
@@ -190,7 +190,7 @@ export default class Register extends Component {
           </div>
 
         <div className="mt-3">
-        <label className="text-base font-bold block m-0 leading-normal">CHOPS</label>
+        <label className="text-base font-bold block m-0 leading-normal uppercase">Rating</label>
           <p className="relative">
             <input 
               id="rating"
@@ -213,7 +213,7 @@ export default class Register extends Component {
         </div>
 
         <div className="mt-3">
-        <label className="text-base font-bold block m-0 leading-normal">HANDEDNESS</label>
+        <label className="text-base font-bold block m-0 leading-normal uppercase">Handedness</label>
           <div className="">
             <div className="">
               <select 

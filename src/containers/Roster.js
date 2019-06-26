@@ -82,7 +82,7 @@ export default class Roster extends Component {
     return (
       <div className="p-6">
       {this.renderRedirect()}
-        <h1 className="font-bold text-2xl">ROSTER</h1>
+        <h1 className="font-bold text-2xl uppercase">Roster</h1>
         <table className="w-full table-auto">
           <thead>
             <tr className="font-semibold border-b-4 border-red-700">
@@ -100,7 +100,7 @@ export default class Roster extends Component {
                 <td className="capitalize">{player.handedness}</td>
                 <td>
                   <button 
-                    className="bg-black text-white py-1 px-2 rounded-full" 
+                    className="delete bg-black text-white py-1 px-2 rounded-full" 
                     onClick={() => this.handleDelete(player.id, index)}
                   >X</button>
                 </td>

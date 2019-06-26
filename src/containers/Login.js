@@ -70,7 +70,7 @@ export default class Login extends Component {
       <div className="p-6">
         <form className="mb-0" onSubmit={this.handleSubmit}>
           <div className="">
-            <label className="text-base font-bold block m-0 leading-normal">EMAIL</label>
+            <label className="text-base font-bold block m-0 leading-normal uppercase">Email</label>
             <div className="relative">
               <input
                 id="email"
@@ -87,7 +87,7 @@ export default class Login extends Component {
           </div>
 
           <div className="mt-3">
-            <label className="text-base font-bold block m-0 leading-normal">PASSWORD</label>
+            <label className="text-base font-bold block m-0 leading-normal uppercase">Password</label>
             <div className="relative">
               <input
                 id="password"

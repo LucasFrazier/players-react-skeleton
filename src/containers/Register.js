@@ -128,6 +128,7 @@ export default class Register extends Component {
 
   confirmPassword() {
     const regEx = RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/);
+    // const regEx = RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/);
     
     if (!this.state.password.match(regEx)) {
       this.setState({
@@ -182,7 +183,7 @@ export default class Register extends Component {
         <form className="mb-0" onSubmit={this.handleSubmit}>
           
           <div className="">
-            <label className="text-base font-bold block m-0 leading-normal">FIRST NAME</label>
+            <label className="text-base font-bold block m-0 leading-normal uppercase">First Name</label>
             <p className="relative">
               <input 
                 id="firstName" 
@@ -205,7 +206,7 @@ export default class Register extends Component {
           </div>
           
           <div className="mt-3">
-          <label className="text-base font-bold block m-0 leading-normal">LAST NAME</label>
+          <label className="text-base font-bold block m-0 leading-normal uppercase">Last Name</label>
             <p className="relative">
               <input
                 id="lastName"
@@ -228,7 +229,7 @@ export default class Register extends Component {
           </div>
           
           <div className="mt-3">
-            <label className="text-base font-bold block m-0 leading-normal">EMAIL</label>
+            <label className="text-base font-bold block m-0 leading-normal uppercase">Email</label>
             <p className="relative">
               <input
                 id="email"
@@ -274,7 +275,7 @@ export default class Register extends Component {
           </div>
           
           <div className="mt-3">
-            <label className="text-base font-bold block m-0 leading-normal">PASSWORD</label>
+            <label className="text-base font-bold block m-0 leading-normal uppercase">Password</label>
             <p className="relative">
               <input
                 id="password"
@@ -297,7 +298,7 @@ export default class Register extends Component {
           </div>
           
           <div className="mt-3">
-            <label className="text-base font-bold block m-0 leading-normal">CONFIRM PASSWORD</label>
+            <label className="text-base font-bold block m-0 leading-normal uppercase">Confirm Password</label>
             <p className="relative">
               <input
                 id="confirmPassword"
@@ -321,8 +322,8 @@ export default class Register extends Component {
           
           <div className="">
             <p className="my-5">
-              <button id="register" className="bg-red-700 text-white font-semibold py-2 px-3 rounded" type="submit">
-                  REGISTER
+              <button id="register" className="bg-red-700 text-white font-semibold py-2 px-3 rounded uppercase" type="submit">
+                  Register
               </button>
             </p>
           </div>

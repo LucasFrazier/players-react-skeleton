@@ -16,7 +16,6 @@ export default class NavBar extends Component {
     document.addEventListener('mousedown', this.handleOutsideClick);
   }
 
-  // opens or closes burger for mobile
   toggleBurger = () => {
     this.setState(prevState => ({
       showBurger: !prevState.showBurger
@@ -63,7 +62,7 @@ export default class NavBar extends Component {
         <nav className="flex items-center justify-between flex-wrap bg-red-700 p-6">
           <div className="flex items-center flex-shrink-0 text-white mr-6">
             <img className="h-8 w-8 mr-2" src="https://cdn3.iconfinder.com/data/icons/universal-signs-symbols/128/hand-rock-ol-512.png" />
-            <Link to="/" className="font-semibold text-xl tracking-tight">MUSISHUNZZZ</Link>
+            <Link to="/" className="font-semibold text-xl tracking-tight uppercase">Musicians</Link>
           </div>
           <div className="block lg:hidden" onClick={this.toggleBurger}>
             <button className="flex items-center px-3 py-2 border rounded text-white">

@@ -18,11 +18,14 @@ export default class LandingPage extends Component {
         <div className="mt-2 font-bold text-xl">
           THANK GOD.
         </div>
-        <div className="my-8">
-          <Link to='/login' className="bg-red-700 text-white font-semibold py-2 px-3 rounded">LOG IN</Link>
+        <div className="mt-5 font-semibold">
+          CREATE A CUSTOM LIST OF MUSICIANS TO PULL FROM FOR YOUR NEXT BAND.
         </div>
         <div className="my-8">
-          <Link to='/register' className="bg-black text-white font-semibold py-2 px-3 rounded">REGISTER</Link>
+          <Link to='/login' className="bg-red-700 text-white font-semibold py-2 px-3 rounded uppercase">Login</Link>
+        </div>
+        <div className="my-8">
+          <Link to='/register' className="bg-black text-white font-semibold py-2 px-3 rounded uppercase">Register</Link>
         </div>
       </div>
     )
