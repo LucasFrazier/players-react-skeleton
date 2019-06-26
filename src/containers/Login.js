@@ -118,57 +118,6 @@ export default class Login extends Component {
           <Link to="/register" className="text-red-700"> Register Here!</Link>
         </div>
       </div>
-      
-      // <div className="container bg-yellow-500">
-      //   <form onSubmit={this.handleSubmit}>
-      //     <div className="field">
-      //       <label className="label is-marginless">Email</label>
-      //       <div className="control has-icons-left has-icons-right">
-      //         <input
-      //           id="email"
-      //           className="input"
-      //           type="email"
-      //           placeholder="Email"
-      //           value={this.state.email}
-      //           onChange={this.handleChange}
-      //         />
-      //         <span className="icon is-small is-left">
-      //           <i className="fas fa-envelope" />
-      //         </span>
-      //       </div>
-      //     </div>
-
-      //     <div className="field">
-      //       <label className="label is-marginless">Password</label>
-      //       <div className="control has-icons-left has-icons-right">
-      //         <input
-      //           id="password"
-      //           className="input"
-      //           type="password"
-      //           placeholder="Password"
-      //           value={this.state.password}
-      //           onChange={this.handleChange}
-      //         />
-      //         <span className="icon is-small is-left">
-      //           <i className="fas fa-lock" />
-      //         </span>
-      //       </div>
-      //     </div>
-
-      //     {this.state.loginError && <p className="help is-danger">Please Enter Username & Password</p>}
-      //     <div className="field">
-      //       <p className="control has-text-centered">
-      //         <button id="login" className="button is-primary " type="submit">
-      //           Login
-      //         </button>
-      //       </p>
-      //     </div>
-      //   </form>
-      //   <h5>
-      //     Need an account?
-      //     <Link to="/register"> Register Here!</Link>
-      //   </h5>
-      // </div>
     );
   }
 }

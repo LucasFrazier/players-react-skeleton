@@ -128,7 +128,6 @@ export default class Register extends Component {
 
   confirmPassword() {
     const regEx = RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/);
-    // const regEx = RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/);
     
     if (!this.state.password.match(regEx)) {
       this.setState({
