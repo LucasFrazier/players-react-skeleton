@@ -121,7 +121,9 @@ export default class Register extends Component {
   }
 
   confirmPassword() {
-    if (this.state.password.length === 0) {
+    const regEx = RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/);
+    
+    if (!this.state.password.match(regEx)) {
       this.setState({
         ErrorPassword: true,
       });
@@ -130,7 +132,7 @@ export default class Register extends Component {
         ErrorPassword: false,
       });
     }
-    return this.state.password.length !== 0;
+    return this.state.password.match(regEx);
   }
 
   verifyPassword() {
@@ -285,7 +287,7 @@ export default class Register extends Component {
                 </span>
               )}
             </p>
-            {this.state.ErrorPassword && <p className="text-sm text-red-500">Please Enter Password!</p>}
+            {this.state.ErrorPassword && <p className="text-sm text-red-500">Password must be 8 characters minimum, at least 1 uppercase letter, 1 lowercase letter, and 1 number!</p>}
           </div>
           
           <div className="mt-3">

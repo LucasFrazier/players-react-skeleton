@@ -47,13 +47,16 @@ export default class Register extends Component {
         })
       })
       .then(response => response.json())
-      .catch(error => console.error('Error:', error))
-      // .then(response => console.log('Success:', JSON.stringify(response)));
       .then(response => {
-        response.success === true && 
-        // window.localStorage.setItem("user", JSON.stringify(response.user));
-        // window.localStorage.setItem("jwt", response.token);
-        this.props.history.push("/roster");
+        if (response.success) {
+          this.props.history.push("/roster")
+        } else {
+          if (response.error.status_code == 409) {
+            alert("Player already exists!");
+          } else {
+            alert("Something went wrong!");
+          }
+        }
       });
     }
     else {
