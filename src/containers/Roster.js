@@ -10,6 +10,7 @@ export default class Roster extends Component {
       redirect: false,
       deleteSuccessful: false,
       somethingWentWrong: false,
+      noPlayersYet: false,
     };
   }
   
@@ -21,6 +22,13 @@ export default class Roster extends Component {
 
   componentDidMount() {
     this.getPlayers();
+    const { players } = this.state;
+    console.log(players.length);
+    if (players.length < 1) {
+      this.setState({
+        noPlayersYet: true,
+      })
+    }
   }
 
   getPlayers = () => {
@@ -32,12 +40,23 @@ export default class Roster extends Component {
         }
       })
       .then(response => response.json())
-      .catch(error => console.error('Error:', error))
       .then(response => {
-        response.success === true &&
-        this.setState({
-          players: response.players
-        })
+        console.log(response.players.length);
+        if (response.success) {
+          if (response.players.length < 1 ) {
+            this.setState({
+              players: response.players,
+              noPlayersYet: true,
+            })
+          } else {
+            this.setState({
+              players: response.players,
+              noPlayersYet: false,
+            })
+          }
+        } else {
+          console.log("Something went wrong.")
+        }
       });
   }
 
@@ -108,6 +127,7 @@ export default class Roster extends Component {
               ))}
           </tbody>   
         </table>
+        {this.state.noPlayersYet && <p className="mt-5 text-red-700 font-semibold">You have no players on your roster!<br />ADD SOME.</p>}
         <div className="my-8">
             <Link to='/player/new' className="bg-red-700 text-white font-semibold py-2 px-3 rounded">ADD PLAYER</Link>
         </div>
