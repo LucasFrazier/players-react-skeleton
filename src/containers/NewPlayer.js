@@ -14,6 +14,8 @@ export default class Register extends Component {
       ErrorLastName: false,
       ErrorRating: false,
       ErrorHandedness: false,
+      playerAlreadyExists: false,
+      somethingWentWrong: false,
     };
   }
 
@@ -52,9 +54,13 @@ export default class Register extends Component {
           this.props.history.push("/roster")
         } else {
           if (response.error.status_code == 409) {
-            alert("Player already exists!");
+            this.setState({
+              playerAlreadyExists: true,
+            });
           } else {
-            alert("Something went wrong!");
+            this.setState({
+              somethingWentWrong: true,
+            });
           }
         }
       });
@@ -188,7 +194,6 @@ export default class Register extends Component {
           <p className="relative">
             <input 
               id="rating"
-              // className={this.state.ErrorRating ? 'input is-danger' : 'input'}
               className="pr-8 pl-8 rounded shadow-inner w-full h-8 border border-gray-400"
               type="text" 
               placeholder="Rating"
@@ -213,7 +218,6 @@ export default class Register extends Component {
             <div className="">
               <select 
               id="handedness"
-              // className={this.state.handedness ? 'input is-danger' : 'input'}
               className="pr-8 pl-8 rounded shadow-inner h-8 border border-gray-400"
               type="text"
               value={this.state.handedness}
@@ -237,6 +241,10 @@ export default class Register extends Component {
             <Link to='/roster' className="bg-black text-white font-semibold py-2 px-3 rounded">CANCEL</Link>
         </div>
         </form>
+
+        {this.state.playerAlreadyExists && <p className="mt-3 text-red-500">Player Already Exists!</p>}
+        {this.state.somethingWentWrong && <p className="text-red-500">Something Went Wrong!</p>}
+
       </div>
     )
   }

@@ -8,6 +8,8 @@ export default class Roster extends Component {
     this.state = {
       players: [],
       redirect: false,
+      deleteSuccessful: false,
+      somethingWentWrong: false,
     };
   }
   
@@ -49,10 +51,17 @@ export default class Roster extends Component {
       }
     })
     .then(response => response.json())
-    .catch(error => console.error('Error:', error))
     .then(response => {
-      response.success === true &&
-      this.getPlayers();
+      if (response.success) {
+        this.setState({
+          deleteSuccessful: true
+        })
+        this.getPlayers();
+      } else {
+        this.setState({
+          somethingWentWrong: true,
+        });
+      }
     });
   }
 
@@ -102,6 +111,10 @@ export default class Roster extends Component {
         <div className="my-8">
             <Link to='/player/new' className="bg-red-700 text-white font-semibold py-2 px-3 rounded">ADD PLAYER</Link>
         </div>
+
+        {this.state.deleteSuccessful && <p className="mt-3 text-red-500">Another Soul Saved!</p>}
+        {this.state.somethingWentWrong && <p className="text-red-500">Something Went Wrong!</p>}
+
       </div>
     )
   }

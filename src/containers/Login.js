@@ -8,6 +8,7 @@ export default class Login extends Component {
       email: '',
       password: '',
       loginError: false,
+      somethingWentWrong: false,
     };
   }
 
@@ -35,13 +36,17 @@ export default class Login extends Component {
         })
       })
       .then(response => response.json())
-      .catch(error => console.error('Error:', error))
-      // .then(response => console.log('Success:', JSON.stringify(response)));
       .then(response => {
-        response.success === true && 
-        window.localStorage.setItem("user", JSON.stringify(response.user));
-        window.localStorage.setItem("jwt", response.token);
-        this.props.history.push("/roster");
+        if (response.success) {
+          window.localStorage.setItem("user", JSON.stringify(response.user));
+          window.localStorage.setItem("jwt", response.token);
+          this.props.history.push("/roster");
+        } else {
+          this.setState({
+            somethingWentWrong: true,
+            loginError: false,
+          });
+        }
       });
     }
     else {
@@ -53,6 +58,7 @@ export default class Login extends Component {
     if (this.state.email.length === 0 || this.state.password.length === 0) {
       this.setState({
         loginError: true,
+        somethingWentWrong: false,
       });
       return false;
     }
@@ -97,6 +103,7 @@ export default class Login extends Component {
             </div>
           </div>
 
+          {this.state.somethingWentWrong && <p className="mt-3 text-sm text-red-500">Something Went Wrong! Please Try Again!</p>}
           {this.state.loginError && <p className="mt-3 text-sm text-red-500">Please Enter Email & Password!</p>}
           <div className="mt-3">
             <p className="text-center">
