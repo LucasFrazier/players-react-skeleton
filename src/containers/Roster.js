@@ -112,7 +112,7 @@ export default class Roster extends Component {
             <Link to='/player/new' className="bg-red-700 text-white font-semibold py-2 px-3 rounded">ADD PLAYER</Link>
         </div>
 
-        {this.state.deleteSuccessful && <p className="mt-3 text-red-500">Another Soul Saved!</p>}
+        {this.state.deleteSuccessful && <p className="mt-3 text-red-500">Another Soul Saved! &#128519;</p>}
         {this.state.somethingWentWrong && <p className="text-red-500">Something Went Wrong!</p>}
 
       </div>
