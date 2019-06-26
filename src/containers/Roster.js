@@ -23,7 +23,6 @@ export default class Roster extends Component {
   componentDidMount() {
     this.getPlayers();
     const { players } = this.state;
-    console.log(players.length);
     if (players.length < 1) {
       this.setState({
         noPlayersYet: true,
@@ -41,7 +40,6 @@ export default class Roster extends Component {
       })
       .then(response => response.json())
       .then(response => {
-        console.log(response.players.length);
         if (response.success) {
           if (response.players.length < 1 ) {
             this.setState({
@@ -55,7 +53,9 @@ export default class Roster extends Component {
             })
           }
         } else {
-          console.log("Something went wrong.")
+          this.setState({
+            somethingWentWrong: true,
+          });
         }
       });
   }

@@ -11,12 +11,12 @@ export default class Register extends Component {
       confirmEmail: '',
       password: '',
       confirmPassword: '',
-      ErrorFirstName: false,
-      ErrorLastName: false,
-      ErrorEmail: false,
-      ErrorVerifyEmail: false,
-      ErrorPassword: false,
-      ErrorVerifyPassword: false,
+      errorFirstName: false,
+      errorLastName: false,
+      errorEmail: false,
+      errorVerifyEmail: false,
+      errorPassword: false,
+      errorVerifyPassword: false,
       userAlreadyExists: false,
       somethingWentWrong: false,
     };
@@ -68,19 +68,16 @@ export default class Register extends Component {
         }
       });
     }
-    else {
-      console.log("The form is invalid!");
-    }
   }
 
   confirmFirstName() {
     if (this.state.firstName.length === 0) {
       this.setState({
-        ErrorFirstName: true,
+        errorFirstName: true,
       });
     } else {
       this.setState({
-        ErrorFirstName: false,
+        errorFirstName: false,
       });
     }
     return this.state.firstName.length !== 0;
@@ -89,11 +86,11 @@ export default class Register extends Component {
   confirmLastName() {
     if (this.state.lastName.length === 0) {
       this.setState({
-        ErrorLastName: true,
+        errorLastName: true,
       });
     } else {
       this.setState({
-        ErrorLastName: false,
+        errorLastName: false,
       });
     }
     return this.state.lastName.length !== 0;
@@ -102,11 +99,11 @@ export default class Register extends Component {
   confirmEmail() {
     if (this.state.email.length === 0) {
       this.setState({
-        ErrorEmail: true,
+        errorEmail: true,
       });
     } else {
       this.setState({
-        ErrorEmail: false,
+        errorEmail: false,
       });
     }
     return this.state.email.length !== 0;
@@ -115,12 +112,12 @@ export default class Register extends Component {
   verifyEmail() {
     if (this.state.confirmEmail && this.state.email) {if (this.state.confirmEmail.length === 0 || this.state.email !== this.state.confirmEmail) {
       this.setState({
-        ErrorVerifyEmail: true,
+        errorVerifyEmail: true,
       });
     }}
      else {
       this.setState({
-        ErrorVerifyEmail: false,
+        errorVerifyEmail: false,
       });
     }
     return this.state.email === this.state.confirmEmail;
@@ -131,11 +128,11 @@ export default class Register extends Component {
     
     if (!this.state.password.match(regEx)) {
       this.setState({
-        ErrorPassword: true,
+        errorPassword: true,
       });
     } else {
       this.setState({
-        ErrorPassword: false,
+        errorPassword: false,
       });
     }
     return this.state.password.match(regEx);
@@ -145,12 +142,12 @@ export default class Register extends Component {
     if (this.state.password && this.state.confirmPassword) {if (this.state.confirmPassword.length === 0
       || this.state.password !== this.state.confirmPassword) {
       this.setState({
-        ErrorVerifyPassword: true,
+        errorVerifyPassword: true,
       });
     }}
      else {
       this.setState({
-        ErrorVerifyPassword: false,
+        errorVerifyPassword: false,
       });
     }
     return this.state.password === this.state.confirmPassword;
@@ -195,13 +192,13 @@ export default class Register extends Component {
               <span className="absolute left-0 pt-2 pl-2">
                 <i className="fas fa-user"></i>
               </span>
-              {this.state.ErrorFirstName && (
+              {this.state.errorFirstName && (
                 <span className="absolute right-0 pt-2 pr-2">
                   <i className="fas fa-exclamation-triangle text-red-500" />
                 </span>
               )}
             </p>
-            {this.state.ErrorFirstName && <p className="text-sm text-red-500">Please Enter First Name!</p>}
+            {this.state.errorFirstName && <p className="text-sm text-red-500">Please Enter First Name!</p>}
           </div>
           
           <div className="mt-3">
@@ -218,13 +215,13 @@ export default class Register extends Component {
               <span className="absolute left-0 pt-2 pl-2">
                 <i className="fas fa-user"></i>
               </span>
-                {this.state.ErrorLastName && (
+                {this.state.errorLastName && (
                   <span className="absolute right-0 pt-2 pr-2">
                     <i className="fas fa-exclamation-triangle text-red-500" />
                   </span>
                 )}
             </p>
-            {this.state.ErrorLastName && <p className="text-sm text-red-500">Please Enter Last Name!</p>}
+            {this.state.errorLastName && <p className="text-sm text-red-500">Please Enter Last Name!</p>}
           </div>
           
           <div className="mt-3">
@@ -241,13 +238,13 @@ export default class Register extends Component {
               <span className="absolute left-0 pt-2 pl-2">
                 <i className="fas fa-envelope" />
               </span>
-              {this.state.ErrorEmail && (
+              {this.state.errorEmail && (
                 <span className="absolute right-0 pt-2 pr-2">
                   <i className="fas fa-exclamation-triangle text-red-500" />
                 </span>
               )}
             </p>
-            {this.state.ErrorEmail && <p className="text-sm text-red-500">Please Enter Email!</p>}
+            {this.state.errorEmail && <p className="text-sm text-red-500">Please Enter Email!</p>}
           </div>
           
           <div className="mt-3">
@@ -264,13 +261,13 @@ export default class Register extends Component {
               <span className="absolute left-0 pt-2 pl-2">
                 <i className="fas fa-envelope" />
               </span>  
-              {this.state.ErrorVerifyEmail && (
+              {this.state.errorVerifyEmail && (
                 <span className="absolute right-0 pt-2 pr-2">
                   <i className="fas fa-exclamation-triangle text-red-500" />
                 </span>
               )}
             </p>
-            {this.state.ErrorVerifyEmail && <p className="text-sm text-red-500">Email and Confirm Email Do Not Match!</p>}
+            {this.state.errorVerifyEmail && <p className="text-sm text-red-500">Email and Confirm Email Do Not Match!</p>}
           </div>
           
           <div className="mt-3">
@@ -287,13 +284,13 @@ export default class Register extends Component {
               <span className="absolute left-0 pt-2 pl-2">
                 <i className="fas fa-lock" />
               </span>                
-              {this.state.ErrorPassword && (
+              {this.state.errorPassword && (
                 <span className="absolute right-0 pt-2 pr-2">
                   <i className="fas fa-exclamation-triangle text-red-500" />
                 </span>
               )}
             </p>
-            {this.state.ErrorPassword && <p className="text-sm text-red-500">Password must be 8 characters minimum, at least 1 uppercase letter, 1 lowercase letter, and 1 number!</p>}
+            {this.state.errorPassword && <p className="text-sm text-red-500">Password must be 8 characters minimum, at least 1 uppercase letter, 1 lowercase letter, and 1 number!</p>}
           </div>
           
           <div className="mt-3">
@@ -310,13 +307,13 @@ export default class Register extends Component {
               <span className="absolute left-0 pt-2 pl-2">
                 <i className="fas fa-lock" />
               </span>
-              {this.state.ErrorVerifyPassword && (
+              {this.state.errorVerifyPassword && (
                 <span className="absolute right-0 pt-2 pr-2">
                   <i className="fas fa-exclamation-triangle text-red-500" />
                 </span>
               )}
             </p>
-            {this.state.ErrorVerifyPassword && <p className="text-sm text-red-500">Password and Confirm Password Do Not Match!</p>}
+            {this.state.errorVerifyPassword && <p className="text-sm text-red-500">Password and Confirm Password Do Not Match!</p>}
           </div>
           
           <div className="">

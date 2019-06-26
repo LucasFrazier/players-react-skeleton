@@ -49,9 +49,6 @@ export default class Login extends Component {
         }
       });
     }
-    else {
-      console.log("The form is invalid!");
-    }
   }
 
   validateForm() {

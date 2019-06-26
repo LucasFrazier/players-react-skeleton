@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
 export default class Register extends Component {
   constructor(props) {
     super(props);
@@ -64,9 +63,6 @@ export default class Register extends Component {
           }
         }
       });
-    }
-    else {
-      console.log("The form is invalid!");
     }
   }
 
